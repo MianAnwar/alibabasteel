@@ -152,9 +152,9 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'Our best-selling single-station height-adjustable desk. MDF tabletop on a precision hand-crank dual bevel gear frame. Smoothly cranks from seated (700 mm) to standing (1180 mm) in under 30 seconds.',
     images: [
-      { src: '/gallery/standing/standing-single-classic-1.jpg', alt: 'Standing Desk Single Classic – full view', width: 1200, height: 800 },
-      { src: '/gallery/standing/standing-single-classic-2.jpg', alt: 'Standing Desk Single Classic – mechanism close-up', width: 1200, height: 800 },
-      { src: '/gallery/standing/standing-single-classic-3.jpg', alt: 'Standing Desk Single Classic – height range diagram', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Standing Desk Single Classic – full view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-internal-components.jpeg', alt: 'Standing Desk Single Classic – mechanism close-up', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-dimensions.jpeg', alt: 'Standing Desk Single Classic – height range diagram', width: 1200, height: 800 },
     ],
     videos: [
       { url: 'https://www.youtube.com/embed/placeholder-demo', type: 'demo', title: 'Single Station Stand Desk — Height Adjustment Demo' },
@@ -183,8 +183,8 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'Premium single-station model with a solid wood top option and reinforced 14-gauge steel frame. Ideal for professionals who spend 8+ hours at the desk daily. Same precision hand-crank mechanism with higher weight capacity.',
     images: [
-      { src: '/gallery/standing/standing-single-pro-1.jpg', alt: 'Standing Desk Single Pro – front view', width: 1200, height: 800 },
-      { src: '/gallery/standing/standing-single-pro-2.jpg', alt: 'Standing Desk Single Pro – solid wood top detail', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Standing Desk Single Pro – front view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-dimensions.jpeg', alt: 'Standing Desk Single Pro – dimensions', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'developer', 'home-office', 'trading'],
     frame: { material: 'mild-steel', finish: 'Silver Grey', gaugeThickness: '14 gauge' },
@@ -209,8 +209,8 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'Two-person collaborative standing desk with an extra-wide MDF surface. Perfect for dual workstations, open-plan offices, or trading floors where two traders share a single height-adjustable frame.',
     images: [
-      { src: '/gallery/standing/double-wide-mdf-1.jpg', alt: 'Double-Wide Standing Desk MDF – front view', width: 1200, height: 800 },
-      { src: '/gallery/standing/double-wide-mdf-2.jpg', alt: 'Double-Wide Standing Desk MDF – overhead view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Double-Wide Standing Desk MDF – front view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-exploded-parts-view.jpeg', alt: 'Double-Wide Standing Desk MDF – exploded parts view', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'trading', 'developer'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -235,8 +235,8 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'The flagship dual-station model. Premium solid wood surface on a heavy-duty synchronized hand-crank frame rated to 120 kg. Chosen by corporate clients who want both ergonomics and impressive aesthetics.',
     images: [
-      { src: '/gallery/standing/double-wide-solid-wood-1.jpg', alt: 'Double-Wide Standing Desk Solid Wood – front view', width: 1200, height: 800 },
-      { src: '/gallery/standing/double-wide-solid-wood-2.jpg', alt: 'Double-Wide Standing Desk Solid Wood – side view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Double-Wide Standing Desk Solid Wood – front view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-internal-components.jpeg', alt: 'Double-Wide Standing Desk Solid Wood – mechanism detail', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'trading'],
     frame: { material: 'mild-steel', finish: 'Raw Steel', gaugeThickness: '14 gauge' },
@@ -261,8 +261,8 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'Corner-configured height-adjustable desk. Primary wing adjusts 700–1180 mm; secondary wing is fixed-height storage/reference surface. Ideal for full trading setups with multi-monitor arrays and reference screens.',
     images: [
-      { src: '/gallery/standing/l-shaped-standing-mdf-1.jpg', alt: 'L-Shaped Standing Desk MDF – overhead view', width: 1200, height: 800 },
-      { src: '/gallery/standing/l-shaped-standing-mdf-2.jpg', alt: 'L-Shaped Standing Desk MDF – corner detail', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'L-Shaped Standing Desk MDF – front view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-mechanical-drive-system-diagram.jpeg', alt: 'L-Shaped Standing Desk MDF – mechanical drive system', width: 1200, height: 800 },
     ],
     idealFor: ['trading', 'developer', 'streaming'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -287,7 +287,7 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'Our most premium configuration: L-shaped standing desk with a solid wood surface throughout. The hand-crank synchronized mechanism lifts both wings simultaneously for a perfectly level standing experience at any height.',
     images: [
-      { src: '/gallery/standing/l-shaped-standing-solid-wood-1.jpg', alt: 'L-Shaped Standing Desk Solid Wood – front view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'L-Shaped Standing Desk Solid Wood – front view', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'trading', 'developer'],
     frame: { material: 'mild-steel', finish: 'Gloss White', gaugeThickness: '14 gauge' },
@@ -318,8 +318,8 @@ const STANDING_FRAME_ONLY: Product[] = [
     description:
       'The complete hand-crank frame without the tabletop. Perfect for customers already owning a custom wood slab, imported surface, or glass top they want to mount. Adjustable crossbeam width accommodates tops from 860 mm to 1330 mm wide.',
     images: [
-      { src: '/gallery/standing/frame-single-station-1.jpg', alt: 'Single Station Standing Frame – isolated view', width: 1200, height: 800 },
-      { src: '/gallery/standing/frame-single-station-2.jpg', alt: 'Single Station Standing Frame – mechanism diagram', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-internal-components.jpeg', alt: 'Single Station Standing Frame – isolated view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-mechanical-drive-system-diagram.jpeg', alt: 'Single Station Standing Frame – mechanism diagram', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'home-office', 'developer'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -342,7 +342,7 @@ const STANDING_FRAME_ONLY: Product[] = [
     description:
       'Dual-station standing frame rated to 120 kg. Bring your own tabletop and save on total cost while still getting the same precision dual bevel gear mechanism used in our complete desks.',
     images: [
-      { src: '/gallery/standing/frame-double-wide-1.jpg', alt: 'Double Wide Standing Frame – front view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-internal-components.jpeg', alt: 'Double Wide Standing Frame – front view', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'trading'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -365,7 +365,7 @@ const STANDING_FRAME_ONLY: Product[] = [
     description:
       'L-shaped height-adjustable frame without tabletop. Ideal for woodworking enthusiasts or those with an existing premium wood top. Both wings lift simultaneously via a single synchronized crank.',
     images: [
-      { src: '/gallery/standing/frame-l-shaped-1.jpg', alt: 'L-Shaped Standing Frame – overhead view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-exploded-parts-view.jpeg', alt: 'L-Shaped Standing Frame – parts view', width: 1200, height: 800 },
     ],
     idealFor: ['developer', 'trading'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
