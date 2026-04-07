@@ -131,7 +131,6 @@
   height: 2px;
   background: var(--border);
   transition: background 0.35s;
-  margin-bottom: 1.35rem; /* align with dot centre vertically */
   border-radius: 1px;
 
   &.done { background: var(--accent); }
