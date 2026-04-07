@@ -135,14 +135,12 @@
 
 .nav-dropdown-panel {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 0;
   z-index: 60;
   min-width: 220px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-overlay);
+  padding-top: 8px;
+  background: transparent;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-6px);
@@ -156,6 +154,10 @@
 }
 
 .nav-dropdown-panel-inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-overlay);
   padding: 6px;
 }
 
