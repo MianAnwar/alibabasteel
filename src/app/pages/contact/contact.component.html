@@ -16,11 +16,11 @@
         <p class="info-desc">We're a Karachi-based workshop. The fastest way to reach us is WhatsApp — our team typically responds within 15 minutes during working hours.</p>
 
         <div class="info-items">
-          <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" class="info-item info-item-primary">
+          <a [href]="config.getWhatsAppLink()" target="_blank" rel="noopener noreferrer" class="info-item info-item-primary">
             <lucide-icon [img]="MessageCircleIcon" [size]="20" />
             <div>
               <strong>WhatsApp (Preferred)</strong>
-              <span>+92 300 1234567</span>
+              <span>+{{ links.whatsappNumber }}</span>
             </div>
           </a>
           <div class="info-item">
@@ -34,7 +34,7 @@
             <lucide-icon [img]="MailIcon" [size]="20" />
             <div>
               <strong>Email</strong>
-              <span>info&#64;alibabasteelworks.com</span>
+              <a [href]="'mailto:' + links.emails.info" class="info-link">{{ links.emails.info }}</a>
             </div>
           </div>
           <div class="info-item">
@@ -53,9 +53,18 @@
           </div>
         </div>
 
-        <!-- Map placeholder -->
-        <div class="map-placeholder" aria-label="Workshop location map placeholder">
-          <p>Google Maps embed — Phase 7</p>
+        <!-- Map embed -->
+        <div class="map-embed">
+          <iframe
+            [src]="mapUrl"
+            width="100%"
+            height="320"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="AliBabaSteel workshop location">
+          </iframe>
         </div>
       </div>
 

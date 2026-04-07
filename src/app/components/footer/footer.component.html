@@ -70,18 +70,14 @@
             <lucide-icon [img]="InstagramIcon" [size]="18" [strokeWidth]="1.5" />
           </a>
         }
-        @if (links.facebook !== 'TODO') {
-          <a [href]="links.facebook" target="_blank" rel="noopener noreferrer"
-            class="footer-social-link" aria-label="Facebook">
-            <lucide-icon [img]="FacebookIcon" [size]="18" [strokeWidth]="1.5" />
-          </a>
-        }
-        @if (links.youtube !== 'TODO') {
-          <a [href]="links.youtube" target="_blank" rel="noopener noreferrer"
-            class="footer-social-link" aria-label="YouTube">
-            <lucide-icon [img]="YoutubeIcon" [size]="18" [strokeWidth]="1.5" />
-          </a>
-        }
+        <a [href]="links.facebook" target="_blank" rel="noopener noreferrer"
+          class="footer-social-link" aria-label="Facebook">
+          <lucide-icon [img]="FacebookIcon" [size]="18" [strokeWidth]="1.5" />
+        </a>
+        <a [href]="links.youtube" target="_blank" rel="noopener noreferrer"
+          class="footer-social-link" aria-label="YouTube">
+          <lucide-icon [img]="YoutubeIcon" [size]="18" [strokeWidth]="1.5" />
+        </a>
       </div>
     </div>
   </div>
