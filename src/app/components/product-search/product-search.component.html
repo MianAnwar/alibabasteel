@@ -1,0 +1,50 @@
+<div class="search-wrapper" [class.variant-hero]="variant === 'hero'" [class.variant-modal]="variant === 'modal'">
+  <div class="search-input-row">
+    <lucide-icon [img]="SearchIcon" [size]="18" [strokeWidth]="1.5" class="search-icon-left" aria-hidden="true" />
+    <input
+      class="search-input"
+      type="text"
+      [value]="query()"
+      (input)="onInput($event)"
+      (keydown)="onKeydown($event)"
+      placeholder="Search tables, standing desks, accessories…"
+      role="combobox"
+      [attr.aria-expanded]="isOpen() && results().length > 0"
+      aria-autocomplete="list"
+      aria-controls="search-results-list"
+      autocomplete="off"
+      spellcheck="false"
+    />
+    @if (query().length > 0) {
+      <button class="clear-btn" type="button" (click)="clearSearch()" aria-label="Clear search">
+        <lucide-icon [img]="XIcon" [size]="16" [strokeWidth]="2" />
+      </button>
+    }
+  </div>
+
+  @if (isOpen()) {
+    <ul id="search-results-list" class="search-dropdown" role="listbox" aria-label="Search results">
+      @if (results().length > 0) {
+        @for (product of results(); track product.id; let i = $index) {
+          <li
+            class="result-item"
+            [class.active]="selectedIndex() === i"
+            role="option"
+            [attr.aria-selected]="selectedIndex() === i"
+            (click)="navigate(product)"
+            (mouseenter)="selectedIndex.set(i)">
+            <img class="result-thumb" [src]="product.images[0]?.src" [alt]="product.name" width="52" height="52" loading="lazy" />
+            <div class="result-info">
+              <span class="result-name">{{ product.name }}</span>
+              <span class="result-badge">{{ product.subType }}</span>
+            </div>
+          </li>
+        }
+      } @else {
+        <li class="no-results" role="option" aria-disabled="true">
+          No results for "{{ query() }}"
+        </li>
+      }
+    </ul>
+  }
+</div>

@@ -1,0 +1,100 @@
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Brand Column -->
+    <div class="footer-col footer-brand">
+      <a routerLink="/" class="footer-logo">
+        <span class="footer-logo-text">AliBaba<span class="footer-logo-accent">Steel</span></span>
+      </a>
+      <p class="footer-tagline">
+        Premium computer tables manufactured in Pakistan.<br />
+        Gaming desks, standing desks, office tables &amp; custom builds.
+      </p>
+      <address class="footer-address">
+        <div class="footer-contact-item">
+          <lucide-icon [img]="MapPinIcon" [size]="14" [strokeWidth]="1.5" aria-hidden="true" />
+          <span>{{ links.addressLine1 }}, {{ links.addressLine2 }}</span>
+        </div>
+        <div class="footer-contact-item">
+          <lucide-icon [img]="PhoneIcon" [size]="14" [strokeWidth]="1.5" aria-hidden="true" />
+          <a [href]="'tel:' + links.phonePrimary" class="footer-link">{{ links.phonePrimary }}</a>
+        </div>
+        <div class="footer-contact-item">
+          <lucide-icon [img]="MailIcon" [size]="14" [strokeWidth]="1.5" aria-hidden="true" />
+          <a [href]="'mailto:' + links.emails.info" class="footer-link">{{ links.emails.info }}</a>
+        </div>
+      </address>
+    </div>
+
+    <!-- Products -->
+    <div class="footer-col">
+      <h3 class="footer-heading">Products</h3>
+      <nav class="footer-links" aria-label="Products navigation">
+        <a routerLink="/catalog/simple" class="footer-link">Simple Computer Tables</a>
+        <a routerLink="/catalog/standing" class="footer-link">Standing Adjustable Desks</a>
+        <a routerLink="/catalog/accessories" class="footer-link">Desk Accessories</a>
+        <a routerLink="/catalog/custom" class="footer-link">Custom Computer Tables</a>
+        <a routerLink="/compare" class="footer-link">Compare Table Types</a>
+      </nav>
+    </div>
+
+    <!-- Company -->
+    <div class="footer-col">
+      <h3 class="footer-heading">Company</h3>
+      <nav class="footer-links" aria-label="Company navigation">
+        <a routerLink="/about" class="footer-link">About AliBabaSteel</a>
+        <a routerLink="/gallery" class="footer-link">Gallery</a>
+        <a routerLink="/blog" class="footer-link">Blog &amp; Guides</a>
+        <a routerLink="/faq" class="footer-link">FAQ</a>
+        <a routerLink="/contact" class="footer-link">Contact Us</a>
+      </nav>
+    </div>
+
+    <!-- Order / Social -->
+    <div class="footer-col">
+      <h3 class="footer-heading">Order</h3>
+      <nav class="footer-links" aria-label="Order navigation">
+        <a routerLink="/configure" class="footer-link">Build Your Table</a>
+        <a routerLink="/custom-order" class="footer-link">Custom Order</a>
+        <a routerLink="/bulk-order" class="footer-link">Bulk / Corporate Order</a>
+      </nav>
+
+      <h3 class="footer-heading" style="margin-top: 24px;">Follow Us</h3>
+      <div class="footer-social">
+        <a [href]="config.getWhatsAppLink()" target="_blank" rel="noopener noreferrer"
+          class="footer-social-link whatsapp" aria-label="WhatsApp">
+          <lucide-icon [img]="MessageCircleIcon" [size]="18" [strokeWidth]="1.5" />
+        </a>
+        @if (links.instagram !== 'TODO') {
+          <a [href]="links.instagram" target="_blank" rel="noopener noreferrer"
+            class="footer-social-link" aria-label="Instagram">
+            <lucide-icon [img]="InstagramIcon" [size]="18" [strokeWidth]="1.5" />
+          </a>
+        }
+        @if (links.facebook !== 'TODO') {
+          <a [href]="links.facebook" target="_blank" rel="noopener noreferrer"
+            class="footer-social-link" aria-label="Facebook">
+            <lucide-icon [img]="FacebookIcon" [size]="18" [strokeWidth]="1.5" />
+          </a>
+        }
+        @if (links.youtube !== 'TODO') {
+          <a [href]="links.youtube" target="_blank" rel="noopener noreferrer"
+            class="footer-social-link" aria-label="YouTube">
+            <lucide-icon [img]="YoutubeIcon" [size]="18" [strokeWidth]="1.5" />
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p class="footer-copyright">
+      &copy; {{ currentYear }} AliBabaSteel. All rights reserved. Made in Pakistan.
+    </p>
+    <div class="footer-bottom-links">
+      <a routerLink="/faq" class="footer-bottom-link">FAQ</a>
+      <a routerLink="/blog" class="footer-bottom-link">Blog</a>
+      <a routerLink="/contact" class="footer-bottom-link">Contact</a>
+    </div>
+  </div>
+</footer>

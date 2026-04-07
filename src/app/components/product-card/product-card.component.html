@@ -1,0 +1,35 @@
+<a [routerLink]="productLink()" class="card">
+  <div class="card-image">
+    @if (product().images[0]) {
+      <img
+        [src]="product().images[0].src"
+        [alt]="product().images[0].alt"
+        loading="lazy"
+        width="400"
+        height="300"
+      />
+    } @else {
+      <div class="card-image-placeholder" aria-hidden="true">
+        <lucide-icon [img]="LayersIcon" [size]="40" [strokeWidth]="1" />
+      </div>
+    }
+    <div class="card-badge">{{ product().priceTier }}</div>
+    @if (variantLabel()) {
+      <div class="card-variant-badge">{{ variantLabel() }}</div>
+    }
+  </div>
+  <div class="card-content">
+    <span class="card-category">{{ product().subType }}</span>
+    <h3 class="card-title">{{ product().name }}</h3>
+    @if (materialSummary()) {
+      <p class="card-meta">{{ materialSummary() }}</p>
+    }
+    <div class="card-footer">
+      <span class="card-production-time">{{ product().estimatedProductionTime }}</span>
+      <span class="card-cta">
+        Enquire
+        <lucide-icon [img]="ArrowRightIcon" [size]="14" [strokeWidth]="2" aria-hidden="true" />
+      </span>
+    </div>
+  </div>
+</a>

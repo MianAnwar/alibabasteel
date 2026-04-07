@@ -1,0 +1,87 @@
+<div class="gallery">
+  <!-- Main Image -->
+  @if (images().length > 0) {
+    <div
+      class="gallery-main"
+      (click)="openLightbox(activeIndex())"
+      (keydown.enter)="openLightbox(activeIndex())"
+      tabindex="0"
+      role="button"
+      [attr.aria-label]="'View full size: ' + images()[activeIndex()].alt"
+    >
+      <img
+        [src]="images()[activeIndex()].src"
+        [alt]="images()[activeIndex()].alt"
+        class="gallery-main-img"
+        loading="eager"
+      />
+      @if (images().length > 1) {
+        <button class="gallery-nav gallery-nav--prev" (click)="$event.stopPropagation(); prev()" aria-label="Previous image">
+          <lucide-icon [img]="ChevronLeftIcon" [size]="20" />
+        </button>
+        <button class="gallery-nav gallery-nav--next" (click)="$event.stopPropagation(); next()" aria-label="Next image">
+          <lucide-icon [img]="ChevronRightIcon" [size]="20" />
+        </button>
+      }
+      <span class="gallery-counter">{{ activeIndex() + 1 }} / {{ images().length }}</span>
+    </div>
+  } @else {
+    <div class="gallery-main gallery-main--placeholder">
+      <span class="gallery-placeholder-text">No images</span>
+    </div>
+  }
+
+  <!-- Thumbnails -->
+  @if (images().length > 1) {
+    <div class="gallery-thumbs" role="list">
+      @for (img of images(); track img.src; let i = $index) {
+        <button
+          class="gallery-thumb"
+          [class.gallery-thumb--active]="i === activeIndex()"
+          (click)="selectImage(i)"
+          [attr.aria-label]="'View image ' + (i + 1)"
+          role="listitem"
+        >
+          <img [src]="img.src" [alt]="img.alt" loading="lazy" />
+        </button>
+      }
+    </div>
+  }
+</div>
+
+<!-- Lightbox Dialog -->
+@if (lightboxOpen()) {
+  <dialog
+    #lightboxDialog
+    class="lightbox"
+    (keydown)="onKeydown($event)"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+  >
+    <div class="lightbox-backdrop" (click)="closeLightbox()"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close lightbox">
+        <lucide-icon [img]="XIcon" [size]="24" />
+      </button>
+
+      <button class="lightbox-nav lightbox-nav--prev" (click)="prev()" aria-label="Previous image">
+        <lucide-icon [img]="ChevronLeftIcon" [size]="28" />
+      </button>
+
+      <img
+        [src]="images()[activeIndex()].src"
+        [alt]="images()[activeIndex()].alt"
+        class="lightbox-img"
+      />
+
+      <button class="lightbox-nav lightbox-nav--next" (click)="next()" aria-label="Next image">
+        <lucide-icon [img]="ChevronRightIcon" [size]="28" />
+      </button>
+
+      <div class="lightbox-caption">
+        <p class="lightbox-caption-alt">{{ images()[activeIndex()].alt }}</p>
+        <span class="lightbox-counter">{{ activeIndex() + 1 }} / {{ images().length }}</span>
+      </div>
+    </div>
+  </dialog>
+}
