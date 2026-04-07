@@ -441,7 +441,7 @@ const CUSTOM_TABLES: Product[] = [
     category: 'custom',
     subType: 'corner',
     description:
-      'Showcase build: a 6-monitor trading desk fabricated for a Karachi-based trading firm. 2400 mm wide steel-sheet tabletop, dual monitor mount holes, integrated cable spine, and lockable casters for easy desk rotation during market hours.',
+      'Showcase build: a 6-monitor trading desk fabricated for a Lahore-based trading firm. 2400 mm wide steel-sheet tabletop, dual monitor mount holes, integrated cable spine, and lockable casters for easy desk rotation during market hours.',
     images: [
       { src: '/gallery/custom/trading-floor-desk-1.jpg', alt: 'Custom Trading Floor Desk – full setup', width: 1200, height: 800 },
       { src: '/gallery/custom/trading-floor-desk-2.jpg', alt: 'Custom Trading Floor Desk – monitor array', width: 1200, height: 800 },

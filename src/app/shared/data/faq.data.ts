@@ -133,14 +133,14 @@ export const ALL_FAQ: FaqEntry[] = [
     topic: 'delivery-assembly',
     question: 'Which cities do you deliver to?',
     answer:
-      'We deliver throughout Pakistan. Karachi, Lahore, and Islamabad/Rawalpindi receive free delivery on orders above a minimum threshold (confirmed at quotation). Other major cities (Faisalabad, Multan, Peshawar, Quetta, Hyderabad) are served at a courier surcharge. Remote areas may require third-party freight arranged by the customer.',
+      'We deliver throughout Pakistan. Lahore, Lahore, and Islamabad/Rawalpindi receive free delivery on orders above a minimum threshold (confirmed at quotation). Other major cities (Faisalabad, Multan, Peshawar, Quetta, Hyderabad) are served at a courier surcharge. Remote areas may require third-party freight arranged by the customer.',
   },
   {
     id: 'faq-del-02',
     topic: 'delivery-assembly',
     question: 'Do you offer assembly / installation?',
     answer:
-      'Yes, within Karachi. An assembly service (2-person team) is available for an additional fee. For other cities, all products come with detailed assembly instructions and access to a YouTube assembly video. Most people find the assembly straightforward with a friend helping.',
+      'Yes, within Lahore. An assembly service (2-person team) is available for an additional fee. For other cities, all products come with detailed assembly instructions and access to a YouTube assembly video. Most people find the assembly straightforward with a friend helping.',
   },
   {
     id: 'faq-del-03',

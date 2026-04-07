@@ -40,7 +40,7 @@ const COMPARE_ROWS = [
 const TESTIMONIALS = [
   {
     name: 'Sarmad K.',
-    city: 'Karachi',
+    city: 'Lahore',
     rating: 5,
     text: 'Ordered a standing desk frame and they delivered exactly what the diagram showed. Solid engineering — been using it for 6 months and zero wobble.',
     setup: 'Developer Workstation',

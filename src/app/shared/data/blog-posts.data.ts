@@ -37,7 +37,7 @@ A Texas A&M study found that stand-capable desk users scored 45–76% higher on 
 
 ### 4. The Pakistan-Specific Context
 
-**Traffic & stress**: Karachi's commute already adds physiological stress. Arriving at work and spending 8 additional hours seated compounds the cardiovascular load.
+**Traffic & stress**: Lahore's commute already adds physiological stress. Arriving at work and spending 8 additional hours seated compounds the cardiovascular load.
 
 **Power outages**: Electric standing desks rely on motors that draw power continuously. A hand-crank mechanical desk works identically regardless of load-shedding — a significant practical advantage in Pakistan's energy environment.
 
@@ -104,7 +104,7 @@ For a personal desk that you set to your height once or twice a day, the 25-seco
 
 Pakistan experiences routine load-shedding across residential and many commercial areas. An electric standing desk with a power cut is a fixed-height desk at whatever height the power cut caught it at. If that happens to be full standing height during an outage, you are standing for the duration.
 
-The AliBabaSteel hand-crank desk is entirely mechanical. It performs identically whether Karachi's power is stable or not.
+The AliBabaSteel hand-crank desk is entirely mechanical. It performs identically whether Lahore's power is stable or not.
 
 ## The Total-Cost-of-Ownership Picture
 
@@ -296,7 +296,7 @@ For standing desks, cables must accommodate 480 mm of vertical travel. The only 
     content: `
 ## The Marketing Reality
 
-Walk into any tech store in Lahore or Karachi — or browse Daraz — and you will see "gaming desks" priced at a 30–50% premium over "office desks" of identical dimensions. The difference is typically a darker colour scheme, an RGB LED strip, and the word "Gaming" in the product name.
+Walk into any tech store in Lahore or Lahore — or browse Daraz — and you will see "gaming desks" priced at a 30–50% premium over "office desks" of identical dimensions. The difference is typically a darker colour scheme, an RGB LED strip, and the word "Gaming" in the product name.
 
 Let us be direct: from a structural and functional standpoint, a gaming desk and an office desk are the same product. Both are flat surfaces on a steel frame. What actually differs between a good desk and a mediocre desk has nothing to do with the "gaming" vs "office" label.
 
