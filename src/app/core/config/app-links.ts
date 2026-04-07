@@ -2,11 +2,11 @@
 // Fill in the TODO values before going live (see plan Open Items)
 
 export const APP_LINKS = {
-  phonePrimary: 'TODO',
+  phonePrimary: '+923121481908',
   phoneSecondary: '',
   emails: {
     info: 'alibabasteel212@gmail.com',
-    orders: 'TODO',
+    orders: 'alibabasteel212@gmail.com',
   },
   whatsappNumber: '923121481908', // international format without +, e.g. '923001234567'
   whatsappMessage: 'Hi AliBabaSteel! I have a question about your computer tables.',
@@ -18,8 +18,8 @@ export const APP_LINKS = {
   siteUrl: 'https://alibabasteel.com', // TODO: update when domain is confirmed
   siteName: 'AliBabaSteel',
   siteTagline: 'Premium Computer Tables — Made in Pakistan',
-  addressLine1: 'TODO',
-  addressLine2: 'TODO',
+  addressLine1: 'Plot No. 336, P.I.A Road, near Chaudhary Chowk, Block D Johar Town',
+  addressLine2: 'Lahore, Pakistan',
 
   getWhatsAppLink(message?: string): string {
     const text = encodeURIComponent(message ?? this.whatsappMessage);

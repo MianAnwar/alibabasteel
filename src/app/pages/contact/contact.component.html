@@ -13,7 +13,7 @@
       <!-- Contact Info -->
       <div class="contact-info">
         <h2>Get in Touch</h2>
-        <p class="info-desc">We're a Karachi-based workshop. The fastest way to reach us is WhatsApp — our team typically responds within 15 minutes during working hours.</p>
+        <p class="info-desc">We're a Lahore-based workshop. The fastest way to reach us is WhatsApp — our team typically responds within 15 minutes during working hours.</p>
 
         <div class="info-items">
           <a [href]="config.getWhatsAppLink()" target="_blank" rel="noopener noreferrer" class="info-item info-item-primary">
@@ -27,7 +27,7 @@
             <lucide-icon [img]="PhoneIcon" [size]="20" />
             <div>
               <strong>Phone</strong>
-              <span>+92 21 3456 7890</span>
+              <a [href]="'tel:' + links.phonePrimary" class="info-link">{{ links.phonePrimary }}</a>
             </div>
           </div>
           <div class="info-item">
@@ -41,14 +41,14 @@
             <lucide-icon [img]="MapPinIcon" [size]="20" />
             <div>
               <strong>Workshop / Showroom</strong>
-              <span>SITE Area, Karachi, Sindh, Pakistan</span>
+              <span>{{ links.addressLine1 }}, {{ links.addressLine2 }}</span>
             </div>
           </div>
           <div class="info-item">
             <lucide-icon [img]="ClockIcon" [size]="20" />
             <div>
               <strong>Working Hours</strong>
-              <span>Mon–Sat: 9am – 6pm PKT</span>
+              <span>Mon–Sat: 9am – 9pm PKT</span>
             </div>
           </div>
         </div>
