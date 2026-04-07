@@ -1,0 +1,291 @@
+@if (product(); as p) {
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+        <a routerLink="/catalog">Catalog</a>
+        <span>/</span>
+        <a [routerLink]="['/catalog', p.category]">{{ p.category | titlecase }}</a>
+        <span>/</span>
+        <span aria-current="page">{{ p.name }}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero: image + summary -->
+  <section class="item-hero">
+    <div class="container item-hero-grid">
+
+      <!-- Image Gallery -->
+      <div class="item-gallery">
+        <app-image-gallery [images]="p.images" [productName]="p.name" />
+      </div>
+
+      <!-- Summary Panel -->
+      <div class="item-summary">
+        <div class="item-badges">
+          <span class="badge badge-sku">{{ p.sku }}</span>
+          <span class="badge badge-tier">{{ p.priceTier }}</span>
+          @if (p.variant) {
+            <span class="badge badge-variant">
+              {{ p.variant === 'frame-only' ? 'Frame Only' : p.variant === 'with-top' ? 'With Tabletop' : 'Complete' }}
+            </span>
+          }
+          @if (p.featured) {
+            <span class="badge badge-featured">Featured</span>
+          }
+        </div>
+
+        <h1 class="item-title">{{ p.name }}</h1>
+        <p class="item-desc">{{ p.description }}</p>
+
+        <!-- Ideal For tags -->
+        @if (idealForLabels().length) {
+          <div class="ideal-for">
+            <span class="ideal-for-label">Ideal for:</span>
+            <div class="ideal-tags">
+              @for (tag of idealForLabels(); track tag) {
+                <span class="ideal-tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Production time -->
+        <div class="item-meta-row">
+          <lucide-icon [img]="PackageIcon" [size]="16" />
+          <span>Production: <strong>{{ p.estimatedProductionTime }}</strong></span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="item-ctas">
+          <a [href]="whatsappLink()" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <lucide-icon [img]="MessageCircleIcon" [size]="18" />
+            Chat on WhatsApp
+          </a>
+          <a [routerLink]="['/configure']" [queryParams]="{ type: p.category }" class="btn btn-primary">
+            <lucide-icon [img]="SlidersIcon" [size]="18" />
+            Configure
+          </a>
+          <a [routerLink]="['/custom-order']" [queryParams]="{ ref: p.slug }" class="btn btn-ghost">
+            <lucide-icon [img]="ClipboardListIcon" [size]="18" />
+            Custom Order
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spec Table -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-heading">Specifications</h2>
+      <div class="spec-table">
+        <div class="spec-row">
+          <span class="spec-key">SKU</span>
+          <span class="spec-val">{{ p.sku }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Category</span>
+          <span class="spec-val">{{ p.category | titlecase }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Sub-Type</span>
+          <span class="spec-val">{{ p.subType }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Dimensions</span>
+          <span class="spec-val">{{ getDimensions(p) }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Frame Material</span>
+          <span class="spec-val">{{ p.frame.material }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Frame Finish</span>
+          <span class="spec-val">{{ p.frame.finish }}</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Gauge</span>
+          <span class="spec-val">{{ p.frame.gaugeThickness }}</span>
+        </div>
+        @if (p.tabletop) {
+          <div class="spec-row">
+            <span class="spec-key">Tabletop Material</span>
+            <span class="spec-val">{{ p.tabletop.material }}</span>
+          </div>
+          @if (p.tabletop.thickness) {
+            <div class="spec-row">
+              <span class="spec-key">Tabletop Thickness</span>
+              <span class="spec-val">{{ p.tabletop.thickness }}</span>
+            </div>
+          }
+        }
+        @if (p.weight) {
+          <div class="spec-row">
+            <span class="spec-key">Weight</span>
+            <span class="spec-val">{{ p.weight }} kg</span>
+          </div>
+        }
+        @if (p.standingMechanism) {
+          <div class="spec-row">
+            <span class="spec-key">Load Capacity</span>
+            <span class="spec-val">{{ p.standingMechanism.loadCapacity }} kg</span>
+          </div>
+        }
+        <div class="spec-row">
+          <span class="spec-key">Production Time</span>
+          <span class="spec-val">{{ p.estimatedProductionTime }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Standing Desk Mechanism Panel -->
+  @if (p.standingMechanism; as mech) {
+    <section class="section section-alt">
+      <div class="container">
+        <button class="collapsible-header" (click)="mechanismOpen.update(v => !v)" [attr.aria-expanded]="mechanismOpen()">
+          <h2 class="section-heading no-margin">Mechanism Specs</h2>
+          <lucide-icon [img]="mechanismOpen() ? ChevronUpIcon : ChevronDownIcon" [size]="20" />
+        </button>
+        @if (mechanismOpen()) {
+          <div class="mechanism-grid">
+            <div class="mechanism-stat">
+              <span class="mechanism-stat-label">Type</span>
+              <span class="mechanism-stat-value">Hand Crank</span>
+            </div>
+            <div class="mechanism-stat">
+              <span class="mechanism-stat-label">Gear System</span>
+              <span class="mechanism-stat-value">Dual Bevel Gear</span>
+            </div>
+            <div class="mechanism-stat">
+              <span class="mechanism-stat-label">Lift Columns</span>
+              <span class="mechanism-stat-value">{{ mech.liftColumns }} (synchronized)</span>
+            </div>
+            <div class="mechanism-stat">
+              <span class="mechanism-stat-label">Load Capacity</span>
+              <span class="mechanism-stat-value">{{ mech.loadCapacity }} kg</span>
+            </div>
+            <div class="mechanism-stat">
+              <span class="mechanism-stat-label">Min Height</span>
+              <span class="mechanism-stat-value">{{ mech.heightMin }} mm ({{ (mech.heightMin / 25.4).toFixed(1) }}″)</span>
+            </div>
+            <div class="mechanism-stat">
+              <span class="mechanism-stat-label">Max Height</span>
+              <span class="mechanism-stat-value">{{ mech.heightMax }} mm ({{ (mech.heightMax / 25.4).toFixed(1) }}″)</span>
+            </div>
+          </div>
+          <!-- Height range visual -->
+          <div class="height-range-bar">
+            <div class="hr-label">700 mm (seated)</div>
+            <div class="hr-track">
+              <div class="hr-fill"></div>
+              <div class="hr-handle"></div>
+            </div>
+            <div class="hr-label">1180 mm (standing)</div>
+          </div>
+          <p class="mechanism-note">
+            <lucide-icon [img]="InfoIcon" [size]="14" />
+            The synchronized drive shaft ensures both columns rise identically. Travel of 480 mm takes ~30 rotations of the crank handle.
+          </p>
+        }
+      </div>
+    </section>
+  }
+
+  <!-- Videos Tab -->
+  @if (p.videos?.length) {
+    <section class="section">
+      <div class="container">
+        <h2 class="section-heading">Videos</h2>
+        <div class="video-tabs">
+          @if (hasVideoOfType(p, 'demo')) {
+            <button class="video-tab" [class.active]="activeTab() === 'demo'" (click)="activeTab.set('demo')">Demo</button>
+          }
+          @if (hasVideoOfType(p, 'assembly')) {
+            <button class="video-tab" [class.active]="activeTab() === 'assembly'" (click)="activeTab.set('assembly')">Assembly</button>
+          }
+          @if (hasVideoOfType(p, 'review')) {
+            <button class="video-tab" [class.active]="activeTab() === 'review'" (click)="activeTab.set('review')">Review</button>
+          }
+        </div>
+        <div class="video-player">
+          @for (video of p.videos; track video.url) {
+            @if (video.type === activeTab()) {
+              <div class="video-embed-wrapper">
+                <iframe
+                  [src]="getSafeUrl(video.url)"
+                  [title]="video.title"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy">
+                </iframe>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Q&A Section -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-heading">Customer Q&amp;A</h2>
+      <p class="qa-hint">Questions are answered by the AliBabaSteel team. <a routerLink="/faq">See the full FAQ →</a></p>
+      <div class="qa-empty">
+        <lucide-icon [img]="InfoIcon" [size]="32" />
+        <p>No questions yet for this product. Be the first!</p>
+        <a [href]="whatsappLink()" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+          Ask on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compatible Accessories -->
+  @if (accessories().length) {
+    <section class="section">
+      <div class="container">
+        <div class="section-header-row">
+          <h2 class="section-heading">Complete Your Setup</h2>
+          <a routerLink="/catalog/accessories" class="section-link">
+            See all accessories
+            <lucide-icon [img]="ArrowRightIcon" [size]="16" />
+          </a>
+        </div>
+        <div class="accessories-grid">
+          @for (acc of accessories(); track acc.id) {
+            <app-product-card [product]="acc" />
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Related Products -->
+  @if (relatedProducts().length) {
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-heading">More in {{ p.category | titlecase }}</h2>
+        <div class="products-grid">
+          @for (rel of relatedProducts(); track rel.id) {
+            <app-product-card [product]="rel" />
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+} @else {
+  <div class="not-found container">
+    <h1>Product not found</h1>
+    <a routerLink="/catalog">
+      <lucide-icon [img]="ArrowLeftIcon" [size]="16" /> Back to Catalog
+    </a>
+  </div>
+}

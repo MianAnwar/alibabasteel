@@ -1,0 +1,96 @@
+<!-- Category Hero -->
+@if (categoryData(); as cat) {
+  <section class="cat-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+        <a routerLink="/catalog">Catalog</a>
+        <span>/</span>
+        <span aria-current="page">{{ cat.label }}</span>
+      </nav>
+      <h1 class="page-title">{{ cat.label }}</h1>
+      <p class="page-subtitle">{{ cat.description }}</p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <div class="filters-bar">
+    <div class="container filters-inner">
+      <!-- Subtype tabs -->
+      <div class="filter-tabs" role="tablist" aria-label="Filter by type">
+        <button
+          class="filter-tab"
+          [class.active]="activeSubtype() === 'all'"
+          (click)="activeSubtype.set('all')"
+          role="tab">
+          All
+        </button>
+        @for (st of subtypes(); track st.value) {
+          <button
+            class="filter-tab"
+            [class.active]="activeSubtype() === st.value"
+            (click)="activeSubtype.set(st.value)"
+            role="tab">
+            {{ st.label }}
+          </button>
+        }
+      </div>
+
+      <!-- Frame-only / With-top toggle (standing only) -->
+      @if (isStanding()) {
+        <div class="variant-toggle" role="group" aria-label="Filter by variant">
+          <button
+            class="variant-btn"
+            [class.active]="variantFilter() === 'all'"
+            (click)="variantFilter.set('all')">
+            All
+          </button>
+          <button
+            class="variant-btn"
+            [class.active]="variantFilter() === 'with-top'"
+            (click)="variantFilter.set('with-top')">
+            With Tabletop
+          </button>
+          <button
+            class="variant-btn"
+            [class.active]="variantFilter() === 'frame-only'"
+            (click)="variantFilter.set('frame-only')">
+            Frame Only
+          </button>
+        </div>
+      }
+
+      <span class="result-count">{{ filteredProducts().length }} results</span>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <section class="section">
+    <div class="container">
+      @if (filteredProducts().length === 0) {
+        <div class="empty-state">
+          <lucide-icon [img]="SlidersIcon" [size]="40" />
+          <p>No products match the current filters.</p>
+          <button class="reset-btn" (click)="activeSubtype.set('all'); variantFilter.set('all')">
+            Reset filters
+          </button>
+        </div>
+      } @else {
+        <div class="products-grid">
+          @for (product of filteredProducts(); track product.id) {
+            <app-product-card [product]="product" />
+          }
+        </div>
+      }
+    </div>
+  </section>
+
+} @else {
+  <div class="not-found">
+    <h1>Category not found</h1>
+    <a routerLink="/catalog">
+      <lucide-icon [img]="ArrowLeftIcon" [size]="16" /> Back to Catalog
+    </a>
+  </div>
+}

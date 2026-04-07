@@ -1,0 +1,64 @@
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Photo Gallery</h1>
+    <p class="page-subtitle">Browse our manufactured desks, standing workstations, and custom steel projects.</p>
+  </div>
+</div>
+
+<!-- Filter Bar -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-tabs">
+      @for (f of filters; track f.value) {
+        <button
+          class="filter-tab"
+          [class.active]="activeFilter() === f.value"
+          (click)="activeFilter.set(f.value)">
+          {{ f.label }}
+          <span class="count">({{ getCount(f.value) }})</span>
+        </button>
+      }
+    </div>
+  </div>
+</div>
+
+<!-- Gallery Grid -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-grid">
+      @for (item of filteredItems(); track item.src) {
+        <button class="gallery-cell" (click)="openLightbox(item)" [title]="item.alt">
+          <img [src]="item.src" [alt]="item.alt" loading="lazy" />
+          <div class="cell-overlay">
+            <lucide-icon [img]="ZoomInIcon" [size]="24" />
+          </div>
+          <span class="cell-label">{{ item.product.name }}</span>
+        </button>
+      }
+    </div>
+
+    @if (filteredItems().length === 0) {
+      <div class="empty-state">
+        <p>No images in this category yet.</p>
+        <a routerLink="/catalog" class="btn btn-primary">Browse Catalog</a>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Lightbox -->
+@if (lightboxItem(); as lb) {
+  <div class="lightbox-backdrop" (click)="closeLightbox()" (keydown)="onKeydown($event)" tabindex="0" role="dialog" [attr.aria-label]="lb.alt">
+    <div class="lightbox-panel" (click)="$event.stopPropagation()">
+      <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close lightbox">
+        <lucide-icon [img]="XIcon" [size]="20" />
+      </button>
+      <img class="lightbox-img" [src]="lb.src" [alt]="lb.alt" />
+      <div class="lightbox-caption">
+        <strong>{{ lb.product.name }}</strong>
+        <a [routerLink]="['/catalog', lb.product.category, lb.product.slug]">View Product →</a>
+      </div>
+    </div>
+  </div>
+}

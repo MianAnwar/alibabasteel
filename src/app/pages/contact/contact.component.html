@@ -1,0 +1,105 @@
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Contact Us</h1>
+    <p class="page-subtitle">Get a quote, ask a question, or check order status — we respond fast.</p>
+  </div>
+</div>
+
+<section class="contact-body">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p class="info-desc">We're a Karachi-based workshop. The fastest way to reach us is WhatsApp — our team typically responds within 15 minutes during working hours.</p>
+
+        <div class="info-items">
+          <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" class="info-item info-item-primary">
+            <lucide-icon [img]="MessageCircleIcon" [size]="20" />
+            <div>
+              <strong>WhatsApp (Preferred)</strong>
+              <span>+92 300 1234567</span>
+            </div>
+          </a>
+          <div class="info-item">
+            <lucide-icon [img]="PhoneIcon" [size]="20" />
+            <div>
+              <strong>Phone</strong>
+              <span>+92 21 3456 7890</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <lucide-icon [img]="MailIcon" [size]="20" />
+            <div>
+              <strong>Email</strong>
+              <span>info&#64;alibabasteelworks.com</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <lucide-icon [img]="MapPinIcon" [size]="20" />
+            <div>
+              <strong>Workshop / Showroom</strong>
+              <span>SITE Area, Karachi, Sindh, Pakistan</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <lucide-icon [img]="ClockIcon" [size]="20" />
+            <div>
+              <strong>Working Hours</strong>
+              <span>Mon–Sat: 9am – 6pm PKT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="map-placeholder" aria-label="Workshop location map placeholder">
+          <p>Google Maps embed — Phase 7</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrap">
+        @if (!submitted()) {
+          <form class="contact-form" (submit)="submit($event)" novalidate>
+            <h2>Send a Message</h2>
+
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input id="name" type="text" [value]="name()" (input)="name.set($any($event.target).value)" placeholder="Your name" required autocomplete="name" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp *</label>
+              <input id="phone" type="tel" [value]="phone()" (input)="phone.set($any($event.target).value)" placeholder="+92 3XX XXXXXXX" required autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email (optional)</label>
+              <input id="email" type="email" [value]="email()" (input)="email.set($any($event.target).value)" placeholder="you@example.com" autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" rows="5" [value]="message()" (input)="message.set($any($event.target).value)" placeholder="Tell us what you need — product type, quantity, dimensions, budget..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="!name() || !phone() || !message()">
+              <lucide-icon [img]="MessageCircleIcon" [size]="18" />
+              Send Message
+            </button>
+          </form>
+        } @else {
+          <div class="success-state">
+            <div class="success-icon">✓</div>
+            <h3>Message received!</h3>
+            <p>We'll follow up on WhatsApp or the contact you provided within a few hours.</p>
+            <button class="btn btn-ghost" (click)="reset()">Send another message</button>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

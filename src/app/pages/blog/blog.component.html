@@ -1,0 +1,65 @@
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-title">AliBabaSteel Blog</h1>
+    <p class="page-subtitle">Desk buying guides, ergonomics research, setup tips, and steel craftsmanship insights.</p>
+  </div>
+</div>
+
+<section class="blog-body">
+  <div class="container">
+
+    <!-- Featured Post -->
+    <a [routerLink]="['/blog', featuredPost.slug]" class="featured-card">
+      <div class="featured-image">
+        <img [src]="featuredPost.coverImage" [alt]="featuredPost.title" loading="eager" />
+        <div class="featured-overlay">
+          <span class="featured-label">Featured</span>
+        </div>
+      </div>
+      <div class="featured-body">
+        <div class="post-meta">
+          <span class="meta-item">
+            <lucide-icon [img]="ClockIcon" [size]="13" />
+            {{ featuredPost.readTimeMinutes }} min read
+          </span>
+          <span class="meta-item">{{ featuredPost.publishedAt | date:'mediumDate' }}</span>
+        </div>
+        <h2 class="featured-title">{{ featuredPost.title }}</h2>
+        <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
+        <span class="read-more">
+          Read article
+          <lucide-icon [img]="ArrowRightIcon" [size]="14" />
+        </span>
+      </div>
+    </a>
+
+    <!-- Post Grid -->
+    <div class="posts-grid">
+      @for (post of restPosts; track post.slug) {
+        <a [routerLink]="['/blog', post.slug]" class="post-card">
+          <div class="post-image">
+            <img [src]="post.coverImage" [alt]="post.title" loading="lazy" />
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="meta-item">
+                <lucide-icon [img]="ClockIcon" [size]="13" />
+                {{ post.readTimeMinutes }} min
+              </span>
+              <span class="meta-item">{{ post.publishedAt | date:'mediumDate' }}</span>
+            </div>
+            <h3 class="post-title">{{ post.title }}</h3>
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+            <div class="post-tags">
+              @for (tag of post.tags.slice(0, 3); track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,99 @@
+@if (post(); as p) {
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+        <a routerLink="/blog">Blog</a>
+        <span>/</span>
+        <span aria-current="page">{{ p.title }}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Article Header -->
+  <header class="post-header">
+    <div class="container">
+      <div class="post-meta">
+        <span class="meta-item">
+          <lucide-icon [img]="ClockIcon" [size]="13" />
+          {{ p.readTimeMinutes }} min read
+        </span>
+        <span class="meta-item">{{ p.publishedAt | date:'longDate' }}</span>
+      </div>
+      <h1 class="post-title">{{ p.title }}</h1>
+      <p class="post-excerpt">{{ p.excerpt }}</p>
+      <div class="post-tags">
+        @for (tag of p.tags; track tag) {
+          <span class="tag">{{ tag }}</span>
+        }
+      </div>
+    </div>
+  </header>
+
+  <!-- Cover Image -->
+  <div class="cover-image">
+    <div class="container">
+      <img [src]="p.coverImage" [alt]="p.title" loading="eager" />
+    </div>
+  </div>
+
+  <!-- Article Body -->
+  <div class="post-body">
+    <div class="container">
+      <div class="prose" [innerHTML]="p.content | markdown"></div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  @if (relatedProducts().length) {
+    <section class="related-products">
+      <div class="container">
+        <h2 class="section-heading">Products Mentioned in This Article</h2>
+        <div class="products-grid">
+          @for (prod of relatedProducts(); track prod.id) {
+            <app-product-card [product]="prod" />
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Prev / Next Navigation -->
+  <nav class="post-nav">
+    <div class="container">
+      @if (prevPost(); as prev) {
+        <a [routerLink]="['/blog', prev.slug]" class="post-nav-link prev">
+          <lucide-icon [img]="ArrowLeftIcon" [size]="16" />
+          <span>
+            <small>Previous</small>
+            <strong>{{ prev.title }}</strong>
+          </span>
+        </a>
+      } @else {
+        <div></div>
+      }
+      @if (nextPost(); as next) {
+        <a [routerLink]="['/blog', next.slug]" class="post-nav-link next">
+          <span>
+            <small>Next</small>
+            <strong>{{ next.title }}</strong>
+          </span>
+          <lucide-icon [img]="ArrowRightIcon" [size]="16" />
+        </a>
+      } @else {
+        <div></div>
+      }
+    </div>
+  </nav>
+
+} @else {
+  <div class="not-found container">
+    <h1>Article not found</h1>
+    <a routerLink="/blog">
+      <lucide-icon [img]="ArrowLeftIcon" [size]="16" /> Back to Blog
+    </a>
+  </div>
+}

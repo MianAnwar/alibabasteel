@@ -1,0 +1,288 @@
+<!-- ═══════════════════════════════════════════════════  HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Made in Pakistan · Built to Last</span>
+    <h1 class="hero-title">
+      Steel-Built for<br />
+      <span class="hero-title-accent">Every Setup</span>
+    </h1>
+    <p class="hero-subtitle">
+      Computer tables, standing desks, and accessories — all fabricated in-house.
+      Browse the catalog or configure your own in minutes.
+    </p>
+    <div class="hero-ctas">
+      <a routerLink="/catalog" class="btn btn-primary">
+        Explore Catalog
+        <lucide-icon [img]="ArrowRightIcon" [size]="18" />
+      </a>
+      <a routerLink="/custom-order" class="btn btn-secondary">
+        Get a Quote
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span></span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════  USE-CASE SHOWCASE ═══ -->
+<section class="section-sm use-cases-section" aria-label="Use-case showcase">
+  <p class="use-cases-label">Empowering every kind of workspace</p>
+  <div class="marquee-track" aria-hidden="true">
+    <div class="marquee-inner">
+      @for (item of useCases; track item.label) {
+        <div class="use-case-card" [style.background]="item.bg">
+          <span class="use-case-emoji">{{ item.emoji }}</span>
+          <span class="use-case-label">{{ item.label }}</span>
+        </div>
+      }
+      <!-- duplicate for seamless loop -->
+      @for (item of useCases; track item.label + '-dup') {
+        <div class="use-case-card" [style.background]="item.bg">
+          <span class="use-case-emoji">{{ item.emoji }}</span>
+          <span class="use-case-label">{{ item.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════  CATEGORY SHOWCASE ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Product Categories</h2>
+      <p class="section-subtitle">Four product lines, all manufactured in-house.</p>
+    </div>
+    <div class="category-grid">
+      @for (cat of categories; track cat.slug) {
+        <a [routerLink]="['/catalog', cat.slug]" class="category-card">
+          <div class="category-card-image">
+            <img [src]="cat.coverImage" [alt]="cat.label" loading="lazy" width="600" height="400" />
+          </div>
+          <div class="category-card-body">
+            <h3 class="category-card-title">{{ cat.label }}</h3>
+            <p class="category-card-desc">{{ cat.description }}</p>
+            <span class="category-card-count">{{ cat.itemCount }} products</span>
+          </div>
+          <div class="category-card-arrow">
+            <lucide-icon [img]="ArrowRightIcon" [size]="20" />
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════  FEATURED PRODUCTS ═══ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Featured Builds</h2>
+      <a routerLink="/catalog" class="section-link">
+        View all <lucide-icon [img]="ChevronRightIcon" [size]="16" />
+      </a>
+    </div>
+    <div class="products-grid">
+      @for (product of featuredProducts; track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════  HOW IT WORKS ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header centered">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">From browsing to delivery in three steps.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-icon">
+          <lucide-icon [img]="LayersIcon" [size]="28" />
+        </div>
+        <h3 class="step-title">Browse & Configure</h3>
+        <p class="step-body">
+          Explore the catalog or use our 4-step wizard to configure your ideal desk — size, material, and add-ons.
+        </p>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-icon">
+          <lucide-icon [img]="ClipboardListIcon" [size]="28" />
+        </div>
+        <h3 class="step-title">Submit Inquiry</h3>
+        <p class="step-body">
+          Send your requirements. We respond with a detailed quote within 24 hours via WhatsApp or email.
+        </p>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-icon">
+          <lucide-icon [img]="TruckIcon" [size]="28" />
+        </div>
+        <h3 class="step-title">We Build & Deliver</h3>
+        <p class="step-body">
+          Confirm the order. Production starts in 1 business day. We deliver across Pakistan with assembly available in Karachi.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════  COMPARISON SNAPSHOT ═══ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header centered">
+      <h2 class="section-title">Which Desk Type Is Right for You?</h2>
+      <p class="section-subtitle">A quick comparison to help you decide.</p>
+    </div>
+    <div class="compare-cards">
+      <div class="compare-card">
+        <div class="compare-card-header simple">
+          <h3>Simple Tables</h3>
+        </div>
+        <ul class="compare-list">
+          @for (row of compareRows; track row.label) {
+            <li class="compare-item">
+              <span class="compare-row-label">{{ row.label }}</span>
+              <span class="compare-row-value">{{ row.simple }}</span>
+            </li>
+          }
+        </ul>
+        <a routerLink="/catalog/simple" class="compare-cta">Browse Simple Desks</a>
+      </div>
+      <div class="compare-card compare-card--featured">
+        <div class="compare-card-badge">Most Popular</div>
+        <div class="compare-card-header standing">
+          <h3>Standing Desks</h3>
+        </div>
+        <ul class="compare-list">
+          @for (row of compareRows; track row.label) {
+            <li class="compare-item">
+              <span class="compare-row-label">{{ row.label }}</span>
+              <span class="compare-row-value accent">{{ row.standing }}</span>
+            </li>
+          }
+        </ul>
+        <a routerLink="/catalog/standing" class="compare-cta compare-cta--accent">Browse Standing Desks</a>
+      </div>
+      <div class="compare-card">
+        <div class="compare-card-header custom">
+          <h3>Custom Tables</h3>
+        </div>
+        <ul class="compare-list">
+          @for (row of compareRows; track row.label) {
+            <li class="compare-item">
+              <span class="compare-row-label">{{ row.label }}</span>
+              <span class="compare-row-value">{{ row.custom }}</span>
+            </li>
+          }
+        </ul>
+        <a routerLink="/custom-order" class="compare-cta">Start Custom Order</a>
+      </div>
+    </div>
+    <div class="compare-full-link">
+      <a routerLink="/compare" class="btn btn-ghost">
+        View full comparison table
+        <lucide-icon [img]="ArrowRightIcon" [size]="16" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════  TRUST SIGNALS ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-stat">
+        <span class="trust-stat-number">500+</span>
+        <span class="trust-stat-label">Tables Delivered</span>
+      </div>
+      <div class="trust-stat">
+        <span class="trust-stat-number">8+</span>
+        <span class="trust-stat-label">Years of Fabrication</span>
+      </div>
+      <div class="trust-stat">
+        <span class="trust-stat-number">4</span>
+        <span class="trust-stat-label">Product Lines</span>
+      </div>
+      <div class="trust-stat">
+        <span class="trust-stat-number">24h</span>
+        <span class="trust-stat-label">Quote Turnaround</span>
+      </div>
+    </div>
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <lucide-icon [img]="ShieldIcon" [size]="20" />
+        <span>2-Year Frame Warranty</span>
+      </div>
+      <div class="trust-badge">
+        <lucide-icon [img]="ZapIcon" [size]="20" />
+        <span>In-House Manufacturing</span>
+      </div>
+      <div class="trust-badge">
+        <lucide-icon [img]="AwardIcon" [size]="20" />
+        <span>Custom Dimensions</span>
+      </div>
+      <div class="trust-badge">
+        <lucide-icon [img]="TruckIcon" [size]="20" />
+        <span>Nationwide Delivery</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════  TESTIMONIALS ═══ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header centered">
+      <h2 class="section-title">What Customers Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      @for (t of testimonials; track t.name) {
+        <div class="testimonial-card">
+          <div class="testimonial-stars" aria-label="{{ t.rating }} out of 5 stars">
+            @for (s of [1,2,3,4,5]; track s) {
+              <lucide-icon [img]="StarIcon" [size]="16" [class.filled]="s <= t.rating" />
+            }
+          </div>
+          <blockquote class="testimonial-text">"{{ t.text }}"</blockquote>
+          <div class="testimonial-author">
+            <span class="testimonial-name">{{ t.name }}</span>
+            <span class="testimonial-detail">{{ t.setup }} · {{ t.city }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════  BOTTOM CTA ═══ -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-banner">
+      <div class="cta-banner-content">
+        <h2 class="cta-banner-title">Ready to Build Your Perfect Desk?</h2>
+        <p class="cta-banner-subtitle">
+          Configure it yourself or send us your requirements. We'll build it exactly to spec.
+        </p>
+      </div>
+      <div class="cta-banner-actions">
+        <a routerLink="/configure" class="btn btn-primary btn-lg">
+          Build Your Table
+          <lucide-icon [img]="SlidersIcon" [size]="18" />
+        </a>
+        <a [href]="whatsappLink" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

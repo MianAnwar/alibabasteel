@@ -1,0 +1,37 @@
+<section class="catalog-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Catalog</span>
+    </nav>
+    <h1 class="page-title">Product Catalog</h1>
+    <p class="page-subtitle">Browse all four product lines — all fabricated in-house in Pakistan.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="catalog-grid">
+      @for (cat of categories; track cat.slug) {
+        <a [routerLink]="['/catalog', cat.slug]" class="cat-card">
+          <div class="cat-card-image">
+            <img [src]="cat.coverImage" [alt]="cat.label" loading="lazy" width="800" height="500" />
+            <div class="cat-card-overlay"></div>
+          </div>
+          <div class="cat-card-body">
+            <h2 class="cat-card-title">{{ cat.label }}</h2>
+            <p class="cat-card-desc">{{ cat.description }}</p>
+            <div class="cat-card-footer">
+              <span class="cat-card-count">{{ cat.itemCount }} products</span>
+              <span class="cat-card-cta">
+                Browse
+                <lucide-icon [img]="ArrowRightIcon" [size]="16" />
+              </span>
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>

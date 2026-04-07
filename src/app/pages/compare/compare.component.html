@@ -1,0 +1,71 @@
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Compare Desk Types</h1>
+    <p class="page-subtitle">Side-by-side breakdown to help you pick the right desk category for your needs.</p>
+  </div>
+</div>
+
+<section class="compare-body">
+  <div class="container">
+
+    <!-- Column Headers -->
+    <div class="compare-headers">
+      <div class="header-cell header-label">Feature</div>
+      <a routerLink="/catalog/simple" class="header-cell">
+        <h2>Simple Desk</h2>
+        <span>Fixed height, solid frame</span>
+        <span class="header-cta">Browse <lucide-icon [img]="ArrowRightIcon" [size]="13" /></span>
+      </a>
+      <a routerLink="/catalog/standing" class="header-cell header-featured">
+        <span class="popular-badge">Most Popular</span>
+        <h2>Standing Desk</h2>
+        <span>Hand-crank height adjust</span>
+        <span class="header-cta">Browse <lucide-icon [img]="ArrowRightIcon" [size]="13" /></span>
+      </a>
+      <a routerLink="/custom-order" class="header-cell">
+        <h2>Custom Order</h2>
+        <span>Fully bespoke spec</span>
+        <span class="header-cta">Enquire <lucide-icon [img]="ArrowRightIcon" [size]="13" /></span>
+      </a>
+    </div>
+
+    <!-- Rows -->
+    <div class="compare-table">
+      @for (row of rows; track row.feature) {
+        <div class="compare-row">
+          <div class="row-feature">{{ row.feature }}</div>
+          <div class="row-val">
+            @if (isBoolean(row.simple)) {
+              <lucide-icon [img]="row.simple ? CheckIcon : XIcon" [size]="16" [class]="row.simple ? 'icon-yes' : 'icon-no'" />
+            } @else {
+              {{ row.simple }}
+            }
+          </div>
+          <div class="row-val row-val-featured">
+            @if (isBoolean(row.standing)) {
+              <lucide-icon [img]="row.standing ? CheckIcon : XIcon" [size]="16" [class]="row.standing ? 'icon-yes' : 'icon-no'" />
+            } @else {
+              {{ row.standing }}
+            }
+          </div>
+          <div class="row-val">
+            @if (isBoolean(row.custom)) {
+              <lucide-icon [img]="row.custom ? CheckIcon : XIcon" [size]="16" [class]="row.custom ? 'icon-yes' : 'icon-no'" />
+            } @else {
+              {{ row.custom }}
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- CTA Row -->
+    <div class="compare-ctas">
+      <a routerLink="/catalog/simple" class="cta-link">View Simple Desks</a>
+      <a routerLink="/catalog/standing" class="cta-link cta-link-primary">View Standing Desks</a>
+      <a routerLink="/custom-order" class="cta-link">Request Custom Quote</a>
+    </div>
+
+  </div>
+</section>

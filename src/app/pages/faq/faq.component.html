@@ -1,0 +1,81 @@
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    <p class="page-subtitle">Everything you need to know about our desks, ordering process, delivery, and more.</p>
+  </div>
+</div>
+
+<!-- Topic Filter Bar -->
+<div class="topic-bar">
+  <div class="container">
+    <div class="topic-tabs">
+      <button
+        class="topic-tab"
+        [class.active]="activeTopic() === 'all'"
+        (click)="activeTopic.set('all')">
+        All Topics
+      </button>
+      @for (topic of topics; track topic) {
+        <button
+          class="topic-tab"
+          [class.active]="activeTopic() === topic"
+          (click)="activeTopic.set(topic)">
+          {{ topicLabels[topic] }}
+        </button>
+      }
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Sections -->
+<section class="faq-body">
+  <div class="container">
+    @for (topic of visibleTopics; track topic) {
+      <div class="faq-group">
+        <h2 class="group-heading">
+          <lucide-icon [img]="HelpCircleIcon" [size]="18" />
+          {{ topicLabels[topic] }}
+        </h2>
+
+        <div class="accordion">
+          @for (entry of faqByTopic[topic]; track entry.id) {
+            <div class="accordion-item" [class.open]="isOpen(entry.id)">
+              <button
+                class="accordion-trigger"
+                (click)="toggle(entry.id)"
+                [attr.aria-expanded]="isOpen(entry.id)">
+                <span class="trigger-q">{{ entry.question }}</span>
+                <lucide-icon
+                  [img]="isOpen(entry.id) ? ChevronUpIcon : ChevronDownIcon"
+                  [size]="18"
+                  class="trigger-icon" />
+              </button>
+              @if (isOpen(entry.id)) {
+                <div class="accordion-body">
+                  <p>{{ entry.answer }}</p>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="faq-cta">
+  <div class="container faq-cta-inner">
+    <lucide-icon [img]="MessageCircleIcon" [size]="28" />
+    <div>
+      <h3>Still have questions?</h3>
+      <p>Chat with us directly — we reply within minutes.</p>
+    </div>
+    <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+      <lucide-icon [img]="MessageCircleIcon" [size]="18" />
+      WhatsApp Us
+    </a>
+    <a routerLink="/contact" class="btn btn-ghost">Contact Form</a>
+  </div>
+</section>

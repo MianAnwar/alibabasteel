@@ -1,0 +1,86 @@
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-title">About AliBabaSteel</h1>
+    <p class="page-subtitle">Karachi-based steel desk manufacturer. Purpose-built for Pakistani professionals, gamers, and businesses.</p>
+  </div>
+</div>
+
+<!-- Stats -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-card">
+          <lucide-icon [img]="stat.icon" [size]="28" class="stat-icon" />
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="story-section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text">
+        <h2 class="section-heading">Our Story</h2>
+        <p>AliBabaSteel was founded in Karachi because we were frustrated with mass-produced imported desks that wobble, scratch easily, and cost Rs 40,000+ for mediocre quality.</p>
+        <p>We are a steel fabrication workshop that transitioned into furniture manufacturing. Our background is structural metalwork — not flat-packed furniture — and it shows in every weld.</p>
+        <p>Today we manufacture simple computer tables, standing desks with hand-crank mechanisms, custom multi-monitor workstations, and accessories — all under one roof in Karachi. Every desk is built to order, with configurable dimensions, frame finishes, and tabletop options.</p>
+        <p>We sell directly to end customers and small businesses. No retail markup. No middlemen.</p>
+      </div>
+      <div class="story-image">
+        <img src="/gallery/standing/standing-single-classic-1.jpg" alt="AliBabaSteel workshop" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Manufacturing Process -->
+<section class="process-section">
+  <div class="container">
+    <h2 class="section-heading text-center">How We Build Your Desk</h2>
+    <div class="steps-list">
+      @for (step of steps; track step.n) {
+        <div class="step">
+          <div class="step-num">{{ step.n }}</div>
+          <div class="step-content">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Trust Signals -->
+<section class="trust-section">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <lucide-icon [img]="ShieldIcon" [size]="28" />
+        <h3>1-Year Structural Warranty</h3>
+        <p>All frames are warranted against weld failures and structural defects for 12 months.</p>
+      </div>
+      <div class="trust-item">
+        <lucide-icon [img]="PackageIcon" [size]="28" />
+        <h3>Built to Order</h3>
+        <p>We don't keep finished desks in stock. Every desk is manufactured fresh to your specifications.</p>
+      </div>
+      <div class="trust-item">
+        <lucide-icon [img]="AwardIcon" [size]="28" />
+        <h3>Pakistani Steel</h3>
+        <p>We use locally sourced ASTM-grade mild steel, supporting domestic industry and reducing import costs.</p>
+      </div>
+      <div class="trust-item">
+        <lucide-icon [img]="MessageCircleIcon" [size]="28" />
+        <h3>Direct Communication</h3>
+        <p>You communicate directly with the workshop. No call centers or helpdesk tickets.</p>
+      </div>
+    </div>
+  </div>
+</section>

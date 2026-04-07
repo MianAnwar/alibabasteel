@@ -1,0 +1,156 @@
+<!-- Hero -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Bulk Order Enquiry</h1>
+    <p class="page-subtitle">Order 5+ desks for your office, co-working space, school, or business and get a custom volume quote.</p>
+  </div>
+</div>
+
+<section class="bulk-body">
+  <div class="container">
+    <div class="bulk-grid">
+
+      <!-- Benefits -->
+      <div class="bulk-info">
+        <h2>Why Buy in Bulk?</h2>
+        <ul class="benefits-list">
+          <li>
+            <lucide-icon [img]="PackageIcon" [size]="18" />
+            <span>Discounted unit pricing at 5+, 10+, and 20+ units</span>
+          </li>
+          <li>
+            <lucide-icon [img]="PackageIcon" [size]="18" />
+            <span>Consistent finish and dimensions across the entire order</span>
+          </li>
+          <li>
+            <lucide-icon [img]="PackageIcon" [size]="18" />
+            <span>Dedicated account contact from design to delivery</span>
+          </li>
+          <li>
+            <lucide-icon [img]="PackageIcon" [size]="18" />
+            <span>Staggered delivery scheduling available</span>
+          </li>
+          <li>
+            <lucide-icon [img]="PackageIcon" [size]="18" />
+            <span>Logo or branding engraving on frames (custom orders)</span>
+          </li>
+        </ul>
+
+        <div class="tiers">
+          <div class="tier">
+            <span class="tier-qty">5–9 units</span>
+            <span class="tier-disc">Ask for volume rate</span>
+          </div>
+          <div class="tier">
+            <span class="tier-qty">10–19 units</span>
+            <span class="tier-disc">Better pricing applies</span>
+          </div>
+          <div class="tier tier-best">
+            <span class="tier-qty">20+ units</span>
+            <span class="tier-disc">Best bulk pricing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="form-wrap">
+        @if (!submitted()) {
+          <form (submit)="submit($event)" novalidate>
+            <h2>Submit Enquiry</h2>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Company / Organisation *</label>
+                <input type="text" [value]="company()" (input)="company.set($any($event.target).value)" placeholder="ACME Corporation" required />
+              </div>
+              <div class="form-group">
+                <label>Industry</label>
+                <input type="text" [value]="industry()" (input)="industry.set($any($event.target).value)" placeholder="e.g. Technology, Education" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Quantity Required *</label>
+                <select [value]="quantity()" (change)="quantity.set($any($event.target).value)" required>
+                  <option value="">Select range</option>
+                  <option value="5-9">5–9 units</option>
+                  <option value="10-19">10–19 units</option>
+                  <option value="20-49">20–49 units</option>
+                  <option value="50+">50+ units</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Desk Type *</label>
+                <select [value]="tableType()" (change)="tableType.set($any($event.target).value)" required>
+                  <option value="">Select type</option>
+                  <option value="simple">Simple / Fixed Height</option>
+                  <option value="standing">Standing / Height Adjustable</option>
+                  <option value="custom">Custom Specification</option>
+                  <option value="mixed">Mixed Types</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Required Timeline</label>
+                <select [value]="timeline()" (change)="timeline.set($any($event.target).value)">
+                  <option value="">Select timeline</option>
+                  <option value="2-weeks">Within 2 weeks</option>
+                  <option value="1-month">Within 1 month</option>
+                  <option value="3-months">Within 3 months</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Budget Range (Rs)</label>
+                <select [value]="budget()" (change)="budget.set($any($event.target).value)">
+                  <option value="">Select range</option>
+                  <option value="under-200k">Under Rs 200,000</option>
+                  <option value="200k-500k">Rs 200k – 500k</option>
+                  <option value="500k-1m">Rs 500k – 1M</option>
+                  <option value="above-1m">Above Rs 1M</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Contact Name *</label>
+                <input type="text" [value]="contactName()" (input)="contactName.set($any($event.target).value)" placeholder="Full name" required />
+              </div>
+              <div class="form-group">
+                <label>Phone / WhatsApp *</label>
+                <input type="tel" [value]="contactPhone()" (input)="contactPhone.set($any($event.target).value)" placeholder="+92 3XX XXXXXXX" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email (optional)</label>
+              <input type="email" [value]="contactEmail()" (input)="contactEmail.set($any($event.target).value)" placeholder="you@company.com" />
+            </div>
+
+            <div class="form-group">
+              <label>Additional Notes</label>
+              <textarea rows="4" [value]="notes()" (input)="notes.set($any($event.target).value)" placeholder="Dimensions, finish preferences, special requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="!isValid">
+              <lucide-icon [img]="MessageCircleIcon" [size]="18" />
+              Submit Enquiry
+            </button>
+          </form>
+        } @else {
+          <div class="success-state">
+            <div class="success-icon">✓</div>
+            <h3>Enquiry received!</h3>
+            <p>Our team will contact you within one working day to discuss pricing and specifications.</p>
+            <button class="btn btn-ghost" (click)="reset()">Submit another enquiry</button>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>
