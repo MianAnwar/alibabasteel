@@ -1,0 +1,149 @@
+@use "tailwindcss";
+
+/* ===== AliBabaSteel Design System — Tailwind v4 Theme ===== */
+
+@theme {
+  /* Font families */
+  --font-inter: "Inter", "DM Sans", system-ui, sans-serif;
+
+  /* Border radius */
+  --radius-default: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.18);
+  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.32);
+
+  /* Colors — mapped from CSS variables for theme switching */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-amber: var(--amber);
+  --color-amber-hover: var(--amber-hover);
+  --color-amber-light: var(--amber-light);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-whatsapp: var(--whatsapp);
+}
+
+/* ===== Light Mode (Default) ===== */
+/* Industrial: off-white bg, charcoal text, steel-blue accent, amber highlight */
+:root {
+  --background: #F5F5F5;
+  --surface: #EDEDED;
+  --surface-hover: #E2E2E2;
+  --text-primary: #1C1C1E;
+  --text-secondary: #5A5A5E;
+  --text-tertiary: #8A8A8E;
+  /* Steel-blue accent */
+  --accent: #2A6FA8;
+  --accent-hover: #1F5A8C;
+  --accent-light: #DDE9F4;
+  /* Amber highlight */
+  --amber: #D97706;
+  --amber-hover: #B45309;
+  --amber-light: #FEF3C7;
+  --border: #D4D4D8;
+  --success: #16A34A;
+  --warning: #D97706;
+  --error: #DC2626;
+  --whatsapp: #25D366;
+}
+
+/* ===== Dark Mode — dark industrial theme (charcoal, steel-blue, amber) ===== */
+.dark {
+  --background: #0F1114;
+  --surface: #1A1D22;
+  --surface-hover: #22262D;
+  --text-primary: #F0F0F0;
+  --text-secondary: #A0A0A8;
+  --text-tertiary: #606068;
+  /* Steel-blue brightened for dark bg */
+  --accent: #4A9FD4;
+  --accent-hover: #3A8FC4;
+  --accent-light: #0D2037;
+  /* Amber on dark */
+  --amber: #F59E0B;
+  --amber-hover: #D97706;
+  --amber-light: #1C1300;
+  --border: #2A2D34;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --whatsapp: #25D366;
+}
+
+/* ===== Base Styles ===== */
+html {
+  font-family: var(--font-inter);
+  background-color: var(--background);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== CLS Prevention ===== */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Reserve space for common aspect ratios */
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Prevent layout shift from font loading */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter');
+}
+
+/* Contain paint for expensive sections */
+.section, section {
+  contain: layout style;
+}
+
+/* Auto content-visibility for below-fold sections */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus ring for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

@@ -1,0 +1,52 @@
+// AliBabaSteel — Prisma schema
+// Database: SQLite (development) — can be switched to PostgreSQL for production
+// Run: npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Inquiry {
+  id                     String   @id @default(cuid())
+  referenceNumber        String   @unique // ABS-XXXXXXXXX-XXXX
+  source                 String   @default("standard") // 'standard' | 'bulk' | 'configure'
+  category               String // 'simple' | 'standing' | 'accessories' | 'custom'
+  referenceProductSlug   String?
+  requirements           String
+  dimensions             String?
+  standingRequired       Boolean  @default(false)
+  materialPreference     String?
+  finish                 String?
+  quantity               Int      @default(1)
+  uploadedImages         String   @default("[]") // JSON array of file paths
+  contactName            String
+  contactPhone           String
+  contactEmail           String?
+  contactCity            String?
+  companyName            String? // for bulk orders
+  industry               String? // for bulk orders
+  budgetRange            String? // for bulk orders
+  timeline               String? // for bulk orders
+  preferredContactMethod String
+  status                 String   @default("new") // 'new' | 'contacted' | 'quoted' | 'won' | 'lost'
+  internalNotes          String?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}
+
+model QAEntry {
+  id          String    @id @default(cuid())
+  productSlug String
+  question    String
+  askedBy     String
+  answer      String?
+  answeredBy  String?
+  approved    Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  answeredAt  DateTime?
+}
