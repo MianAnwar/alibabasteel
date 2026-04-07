@@ -1,0 +1,439 @@
+<!-- ═══════════════════  PAGE WRAPPER  ═══════════════════════════════════════ -->
+<div class="configure-page">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-title">Build Your Table</h1>
+      <p class="page-subtitle">Configure your ideal desk in 4 steps — get a WhatsApp quote in minutes.</p>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  @if (currentStep() < 5) {
+    <div class="progress-bar-wrap">
+      <div class="container">
+        <div class="steps-nav">
+          @for (step of [
+            { n: 1, label: 'Type', icon: LayersIcon },
+            { n: 2, label: 'Size', icon: SlidersIcon },
+            { n: 3, label: 'Materials', icon: PaletteIcon },
+            { n: 4, label: 'Add-ons', icon: PlusIcon }
+          ]; track step.n) {
+            <button
+              class="step-dot"
+              [class.active]="currentStep() === step.n"
+              [class.done]="currentStep() > step.n"
+              [disabled]="currentStep() < step.n"
+              (click)="currentStep() > step.n ? goToStep($any(step.n)) : null">
+              @if (currentStep() > step.n) {
+                <lucide-icon [img]="CheckIcon" [size]="14" />
+              } @else {
+                {{ step.n }}
+              }
+              <span class="step-label">{{ step.label }}</span>
+            </button>
+            @if (step.n < 4) {
+              <div class="step-connector" [class.done]="currentStep() > step.n"></div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- ═══════════  STEP 1 — Table Type  ════════════════════════════════════ -->
+  @if (currentStep() === 1) {
+    <section class="step-section">
+      <div class="container">
+        <h2 class="step-heading">What type of desk do you need?</h2>
+
+        <div class="type-grid">
+          @for (opt of tableTypes; track opt.value) {
+            <button
+              class="type-card"
+              [class.selected]="state().tableType === opt.value"
+              (click)="selectType(opt.value)">
+              @if (state().tableType === opt.value) {
+                <lucide-icon [img]="CheckIcon" [size]="16" class="type-check" />
+              }
+              <span class="type-emoji">{{ opt.icon }}</span>
+              <h3 class="type-label">{{ opt.label }}</h3>
+              <p class="type-subtitle">{{ opt.subtitle }}</p>
+              <ul class="type-features">
+                @for (f of opt.features; track f) {
+                  <li>{{ f }}</li>
+                }
+              </ul>
+              <span class="type-price">{{ opt.priceRange }}</span>
+            </button>
+          }
+        </div>
+
+        <div class="step-actions">
+          <span></span>
+          <button class="btn btn-primary" [disabled]="!step1Valid()" (click)="nextStep()">
+            Next: Size
+            <lucide-icon [img]="ChevronRightIcon" [size]="18" />
+          </button>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- ═══════════  STEP 2 — Dimensions  ════════════════════════════════════ -->
+  @if (currentStep() === 2) {
+    <section class="step-section">
+      <div class="container">
+        <h2 class="step-heading">Choose your dimensions</h2>
+
+        <!-- Size presets -->
+        <div class="presets-grid">
+          @for (preset of sizePresets(); track $index) {
+            <button
+              class="preset-card"
+              [class.selected]="state().sizePresetIndex === $index"
+              [class.custom-option]="$index === sizePresets().length - 1"
+              (click)="selectPreset($index)">
+              @if (preset.recommended) {
+                <span class="preset-badge">Recommended</span>
+              }
+              @if (state().sizePresetIndex === $index) {
+                <lucide-icon [img]="CheckIcon" [size]="14" class="preset-check" />
+              }
+              <span class="preset-label">{{ preset.label }}</span>
+              @if (preset.widthMm && preset.depthMm) {
+                <span class="preset-dims">
+                  {{ formatMm(preset.widthMm) }} wide · {{ formatMm(preset.depthMm) }} deep
+                </span>
+              }
+            </button>
+          }
+        </div>
+
+        <!-- Custom dimension inputs -->
+        @if (isCustomSize()) {
+          <div class="custom-dims">
+            <h3>Enter your dimensions</h3>
+            <div class="dim-inputs">
+              <div class="dim-group">
+                <label>Width (mm)</label>
+                <input
+                  type="number"
+                  min="600"
+                  max="2400"
+                  placeholder="e.g. 1400"
+                  [value]="state().customWidth ?? ''"
+                  (input)="setCustomWidth($event)" />
+                <span class="dim-hint">600–2400 mm</span>
+              </div>
+              <div class="dim-group">
+                <label>Depth (mm)</label>
+                <input
+                  type="number"
+                  min="400"
+                  max="1000"
+                  placeholder="e.g. 650"
+                  [value]="state().customDepth ?? ''"
+                  (input)="setCustomDepth($event)" />
+                <span class="dim-hint">400–1000 mm</span>
+              </div>
+            </div>
+          </div>
+        }
+
+        <!-- Standing desk variant toggle (only shown for standing type) -->
+        @if (isStanding()) {
+          <div class="variant-section">
+            <h3 class="variant-title">Tabletop included?</h3>
+            <div class="variant-toggle">
+              <button
+                class="variant-btn"
+                [class.selected]="state().standingVariant === 'with-top'"
+                (click)="selectVariant('with-top')">
+                <span class="v-emoji">📋</span>
+                <span class="v-label">With Tabletop</span>
+                <span class="v-desc">Complete desk — frame + MDF/wood/glass top</span>
+              </button>
+              <button
+                class="variant-btn"
+                [class.selected]="state().standingVariant === 'frame-only'"
+                (click)="selectVariant('frame-only')">
+                <span class="v-emoji">🔩</span>
+                <span class="v-label">Frame Only</span>
+                <span class="v-desc">Just the adjustable frame — you provide the top</span>
+              </button>
+            </div>
+          </div>
+        }
+
+        <!-- Standing desk mechanism info box -->
+        @if (isStanding()) {
+          <div class="mechanism-info">
+            <div class="mi-header">
+              <span class="mi-icon">⚙️</span>
+              <strong>Included: Hand-Crank Mechanism</strong>
+            </div>
+            <div class="mi-specs">
+              <div class="mi-spec"><span>Height range</span><strong>700–1180 mm</strong></div>
+              <div class="mi-spec"><span>Gear system</span><strong>Dual Bevel Gear</strong></div>
+              <div class="mi-spec"><span>Lift columns</span><strong>2 (synchronized)</strong></div>
+              <div class="mi-spec"><span>Load capacity</span><strong>80+ kg</strong></div>
+            </div>
+          </div>
+        }
+
+        <div class="step-actions">
+          <button class="btn btn-ghost" (click)="prevStep()">
+            <lucide-icon [img]="ArrowLeftIcon" [size]="16" />
+            Back
+          </button>
+          <button class="btn btn-primary" [disabled]="!step2Valid()" (click)="nextStep()">
+            Next: Materials
+            <lucide-icon [img]="ChevronRightIcon" [size]="18" />
+          </button>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- ═══════════  STEP 3 — Materials & Finish  ════════════════════════════ -->
+  @if (currentStep() === 3) {
+    <section class="step-section">
+      <div class="container">
+        <h2 class="step-heading">Choose materials & finish</h2>
+
+        <!-- Tabletop choice (hidden for frame-only) -->
+        @if (showTabletop()) {
+          <div class="material-section">
+            <h3 class="material-heading">Tabletop Material</h3>
+            <div class="material-grid">
+              @for (opt of tabletopOptions; track opt.value) {
+                <button
+                  class="material-card"
+                  [class.selected]="state().tabletopMaterial === opt.value"
+                  (click)="selectTabletop(opt.value)">
+                  @if (state().tabletopMaterial === opt.value) {
+                    <lucide-icon [img]="CheckIcon" [size]="14" class="mat-check" />
+                  }
+                  <span class="mat-emoji">{{ opt.emoji }}</span>
+                  <span class="mat-label">{{ opt.label }}</span>
+                  <span class="mat-desc">{{ opt.desc }}</span>
+                  <span class="mat-price">{{ opt.priceImpact }}</span>
+                </button>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- Frame Finish -->
+        <div class="material-section">
+          <h3 class="material-heading">Frame Finish</h3>
+          <div class="finish-grid">
+            @for (opt of frameFinishes; track opt.value) {
+              <button
+                class="finish-card"
+                [class.selected]="state().frameFinish === opt.value"
+                (click)="selectFinish(opt.value)">
+                @if (state().frameFinish === opt.value) {
+                  <lucide-icon [img]="CheckIcon" [size]="14" class="finish-check" />
+                }
+                <span class="finish-swatch">{{ opt.emoji }}</span>
+                <span class="finish-label">{{ opt.label }}</span>
+                <span class="finish-price">{{ opt.priceImpact }}</span>
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="step-actions">
+          <button class="btn btn-ghost" (click)="prevStep()">
+            <lucide-icon [img]="ArrowLeftIcon" [size]="16" />
+            Back
+          </button>
+          <button class="btn btn-primary" [disabled]="!step3Valid()" (click)="nextStep()">
+            Next: Add-ons
+            <lucide-icon [img]="ChevronRightIcon" [size]="18" />
+          </button>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- ═══════════  STEP 4 — Add-ons  ══════════════════════════════════════= -->
+  @if (currentStep() === 4) {
+    <section class="step-section">
+      <div class="container">
+        <h2 class="step-heading">Add-ons <span class="optional-label">(optional)</span></h2>
+        <p class="step-desc">All add-ons can be included during manufacturing at a lower cost than retrofitting.</p>
+
+        <div class="addons-grid">
+          @for (addon of addons; track addon.id) {
+            <button
+              class="addon-card"
+              [class.selected]="isAddonSelected(addon.id)"
+              (click)="toggleAddon(addon.id)">
+              <div class="addon-check-wrap">
+                <div class="addon-checkbox" [class.checked]="isAddonSelected(addon.id)">
+                  @if (isAddonSelected(addon.id)) {
+                    <lucide-icon [img]="CheckIcon" [size]="12" />
+                  }
+                </div>
+              </div>
+              <span class="addon-emoji">{{ addon.emoji }}</span>
+              <div class="addon-info">
+                <span class="addon-label">{{ addon.label }}</span>
+                <span class="addon-desc">{{ addon.desc }}</span>
+              </div>
+              <span class="addon-price">{{ addon.priceLabel }}</span>
+            </button>
+          }
+        </div>
+
+        <div class="step-actions">
+          <button class="btn btn-ghost" (click)="prevStep()">
+            <lucide-icon [img]="ArrowLeftIcon" [size]="16" />
+            Back
+          </button>
+          <button class="btn btn-primary" (click)="nextStep()">
+            See Summary
+            <lucide-icon [img]="ChevronRightIcon" [size]="18" />
+          </button>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- ═══════════  STEP 5 — Summary  ══════════════════════════════════════= -->
+  @if (currentStep() === 5) {
+    <section class="step-section">
+      <div class="container summary-layout">
+
+        <!-- Configuration card -->
+        <div class="summary-card">
+          <div class="summary-header">
+            <h2>Your Configuration</h2>
+            <button class="btn-reset" (click)="reset()">
+              <lucide-icon [img]="RotateCcwIcon" [size]="14" />
+              Start over
+            </button>
+          </div>
+
+          <div class="summary-rows">
+            <!-- Type -->
+            <div class="summary-row">
+              <span class="sr-key">Desk Type</span>
+              <span class="sr-val">
+                {{ getTypeLabel(state().tableType) }}
+              </span>
+              <button class="sr-edit" (click)="goToStep(1)">Edit</button>
+            </div>
+
+            @if (state().standingVariant) {
+              <div class="summary-row">
+                <span class="sr-key">Variant</span>
+                <span class="sr-val">{{ state().standingVariant === 'frame-only' ? 'Frame Only' : 'With Tabletop' }}</span>
+                <button class="sr-edit" (click)="goToStep(2)">Edit</button>
+              </div>
+            }
+
+            <!-- Size -->
+            @if (effectiveWidth() && effectiveDepth()) {
+              <div class="summary-row">
+                <span class="sr-key">Dimensions</span>
+                <span class="sr-val">{{ effectiveWidth() }} × {{ effectiveDepth() }} mm</span>
+                <button class="sr-edit" (click)="goToStep(2)">Edit</button>
+              </div>
+            }
+
+            <!-- Tabletop -->
+            @if (state().tabletopMaterial) {
+              <div class="summary-row">
+                <span class="sr-key">Tabletop</span>
+                <span class="sr-val">{{ state().tabletopMaterial }}</span>
+                <button class="sr-edit" (click)="goToStep(3)">Edit</button>
+              </div>
+            }
+
+            <!-- Finish -->
+            @if (state().frameFinish) {
+              <div class="summary-row">
+                <span class="sr-key">Frame Finish</span>
+                <span class="sr-val">{{ state().frameFinish }}</span>
+                <button class="sr-edit" (click)="goToStep(3)">Edit</button>
+              </div>
+            }
+
+            <!-- Standing mechanism -->
+            @if (isStanding()) {
+              <div class="summary-row">
+                <span class="sr-key">Mechanism</span>
+                <span class="sr-val">Hand Crank · 700–1180 mm</span>
+                <span></span>
+              </div>
+            }
+
+            <!-- Add-ons -->
+            <div class="summary-row">
+              <span class="sr-key">Add-ons</span>
+              <span class="sr-val">
+                @if (state().selectedAddons.size === 0) {
+                  None
+                } @else {
+                  @for (id of state().selectedAddons; track id) {
+                    <span class="addon-chip">{{ getAddonLabel(id) }}</span>
+                  }
+                }
+              </span>
+              <button class="sr-edit" (click)="goToStep(4)">Edit</button>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="summary-ctas">
+            <a
+              [href]="whatsappLink()"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp btn-lg">
+              <lucide-icon [img]="MessageCircleIcon" [size]="20" />
+              Get Quote on WhatsApp
+            </a>
+            <a routerLink="/custom-order" class="btn btn-primary btn-lg">
+              Full Custom Order
+              <lucide-icon [img]="ArrowRightIcon" [size]="18" />
+            </a>
+          </div>
+
+          <p class="summary-note">
+            WhatsApp opens pre-filled with your configuration. Our team responds within 15 minutes during working hours.
+          </p>
+        </div>
+
+        <!-- Matched products -->
+        @if (matchedProducts().length) {
+          <div class="matched-products">
+            <h3 class="matched-heading">You might like</h3>
+            <div class="matched-list">
+              @for (p of matchedProducts(); track p.id) {
+                <a [routerLink]="['/catalog', p.category, p.slug]" class="matched-card">
+                  <div class="mc-image">
+                    <img [src]="p.images[0]?.src" [alt]="p.images[0]?.alt" loading="lazy" />
+                  </div>
+                  <div class="mc-body">
+                    <span class="mc-sku">{{ p.sku }}</span>
+                    <h4 class="mc-name">{{ p.name }}</h4>
+                    <span class="mc-tier">{{ p.priceTier }}</span>
+                  </div>
+                  <lucide-icon [img]="ArrowRightIcon" [size]="16" class="mc-arrow" />
+                </a>
+              }
+            </div>
+          </div>
+        }
+
+      </div>
+    </section>
+  }
+
+</div>
