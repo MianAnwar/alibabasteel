@@ -56,73 +56,83 @@
   align-items: center;
   justify-content: center;
   gap: 0;
+  padding-bottom: 1.5rem; /* room for labels */
 }
 
 .step-dot {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
-  background: none;
+  justify-content: center;
+  background: var(--surface);
   border: 2px solid var(--border);
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 0.85rem;
+  width: 40px;
+  height: 40px;
+  font-size: 0.875rem;
   font-weight: 700;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   cursor: default;
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  transition: border-color 0.25s, background 0.25s, color 0.25s, box-shadow 0.25s;
   position: relative;
   flex-shrink: 0;
 
   /* The label sits below the circle */
   .step-label {
     position: absolute;
-    top: calc(100% + 4px);
+    top: calc(100% + 6px);
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 500;
     color: var(--text-tertiary);
     white-space: nowrap;
+    transition: color 0.25s, font-weight 0.25s;
   }
 
   &.active {
     border-color: var(--accent);
     background: var(--accent);
     color: #fff;
+    box-shadow: 0 0 0 4px var(--accent-light);
 
-    .step-label { color: var(--accent); }
+    .step-label {
+      color: var(--accent);
+      font-weight: 700;
+    }
   }
 
   &.done {
     border-color: var(--accent);
-    background: var(--accent-light);
-    color: var(--accent);
+    background: var(--accent);
+    color: #fff;
     cursor: pointer;
 
-    .step-label { color: var(--accent); }
+    .step-label {
+      color: var(--accent);
+      font-weight: 600;
+    }
 
     &:hover {
-      background: var(--accent);
-      color: #fff;
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      box-shadow: 0 0 0 3px var(--accent-light);
     }
   }
 
   &:disabled:not(.done):not(.active) {
-    opacity: 0.45;
+    opacity: 0.5;
     cursor: not-allowed;
   }
 }
 
 .step-connector {
   flex: 1;
+  max-width: 80px;
   height: 2px;
-  max-width: 64px;
   background: var(--border);
-  transition: background 0.3s;
-  margin-bottom: 1.25rem; /* align with dot centre */
+  transition: background 0.35s;
+  margin-bottom: 1.35rem; /* align with dot centre vertically */
+  border-radius: 1px;
 
   &.done { background: var(--accent); }
 }
