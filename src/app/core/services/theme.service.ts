@@ -10,17 +10,13 @@ export class ThemeService {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
 
-  readonly theme = signal<Theme>('dark'); // default dark — industrial theme
+  readonly theme = signal<Theme>('light');
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
       const saved = localStorage.getItem(STORAGE_KEY) as Theme | null;
       if (saved === 'light' || saved === 'dark') {
         this.theme.set(saved);
-      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        this.theme.set('dark');
-      } else {
-        this.theme.set('light');
       }
     }
 
