@@ -31,11 +31,20 @@
 }
 
 .footer-logo {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
 }
 
-.footer-logo-text {
+.footer-logo-img {
+  height: 45px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.footer-logo-name {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -43,7 +52,7 @@
 }
 
 .footer-logo-accent {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .footer-tagline {
