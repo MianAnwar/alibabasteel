@@ -53,6 +53,7 @@
   border: 1px solid var(--border);
   object-fit: cover;
   max-height: 400px;
+  &.img-top { object-position: top; }
 }
 
 .section-heading { font-size: clamp(1.25rem, 2.5vw, 1.625rem); font-weight: 700; color: var(--text-primary); margin: 0 0 1.75rem; }
