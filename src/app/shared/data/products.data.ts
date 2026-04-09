@@ -183,8 +183,8 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'Premium single-station model with a solid wood top option and reinforced 14-gauge steel frame. Ideal for professionals who spend 8+ hours at the desk daily. Same precision hand-crank mechanism with higher weight capacity.',
     images: [
-      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Standing Desk Single Pro – front view', width: 1200, height: 800 },
-      { src: '/gallery/standing/height-adjustable-desk-frame-dimensions.jpeg', alt: 'Standing Desk Single Pro – dimensions', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-internal-components.jpeg', alt: 'Standing Desk Single Pro – mechanism close-up', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Standing Desk Single Pro – full view', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'developer', 'home-office', 'trading'],
     frame: { material: 'mild-steel', finish: 'Silver Grey', gaugeThickness: '14 gauge' },
@@ -209,8 +209,8 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'Two-person collaborative standing desk with an extra-wide MDF surface. Perfect for dual workstations, open-plan offices, or trading floors where two traders share a single height-adjustable frame.',
     images: [
-      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Double-Wide Standing Desk MDF – front view', width: 1200, height: 800 },
-      { src: '/gallery/standing/height-adjustable-desk-frame-exploded-parts-view.jpeg', alt: 'Double-Wide Standing Desk MDF – exploded parts view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-dimensions.jpeg', alt: 'Double-Wide Standing Desk MDF – dimensions diagram', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Double-Wide Standing Desk MDF – full view', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'trading', 'developer'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -235,8 +235,8 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'The flagship dual-station model. Premium solid wood surface on a heavy-duty synchronized hand-crank frame rated to 120 kg. Chosen by corporate clients who want both ergonomics and impressive aesthetics.',
     images: [
-      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Double-Wide Standing Desk Solid Wood – front view', width: 1200, height: 800 },
-      { src: '/gallery/standing/height-adjustable-desk-frame-internal-components.jpeg', alt: 'Double-Wide Standing Desk Solid Wood – mechanism detail', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-frame-exploded-parts-view.jpeg', alt: 'Double-Wide Standing Desk Solid Wood – exploded parts view', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'Double-Wide Standing Desk Solid Wood – full view', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'trading'],
     frame: { material: 'mild-steel', finish: 'Raw Steel', gaugeThickness: '14 gauge' },
@@ -261,8 +261,8 @@ const STANDING_WITH_TOP: Product[] = [
     description:
       'Corner-configured height-adjustable desk. Primary wing adjusts 700–1180 mm; secondary wing is fixed-height storage/reference surface. Ideal for full trading setups with multi-monitor arrays and reference screens.',
     images: [
-      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'L-Shaped Standing Desk MDF – front view', width: 1200, height: 800 },
       { src: '/gallery/standing/height-adjustable-desk-mechanical-drive-system-diagram.jpeg', alt: 'L-Shaped Standing Desk MDF – mechanical drive system', width: 1200, height: 800 },
+      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'L-Shaped Standing Desk MDF – full view', width: 1200, height: 800 },
     ],
     idealFor: ['trading', 'developer', 'streaming'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -276,35 +276,10 @@ const STANDING_WITH_TOP: Product[] = [
     featured: true,
     estimatedProductionTime: '10–14 working days',
   },
-  {
-    id: 'std-006',
-    slug: 'standing-desk-l-shaped-solid-wood',
-    sku: 'ABS-STD-006',
-    name: 'L-Shaped Standing Desk — Solid Wood',
-    category: 'standing',
-    subType: 'l-standing',
-    variant: 'with-top',
-    description:
-      'Our most premium configuration: L-shaped standing desk with a solid wood surface throughout. The hand-crank synchronized mechanism lifts both wings simultaneously for a perfectly level standing experience at any height.',
-    images: [
-      { src: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg', alt: 'L-Shaped Standing Desk Solid Wood – front view', width: 1200, height: 800 },
-    ],
-    idealFor: ['office', 'trading', 'developer'],
-    frame: { material: 'mild-steel', finish: 'Gloss White', gaugeThickness: '14 gauge' },
-    tabletop: { material: 'Solid Wood', thickness: '35mm' },
-    dimensions: { widthMin: 860, widthMax: 1330, depth: 1200, minHeight: 700, maxHeight: 1180 },
-    standingMechanism: { ...HAND_CRANK_MECHANISM, loadCapacity: 100 },
-    features: ['cable-management', 'adjustable-feet', 'monitor-mount-holes'],
-    compatibleAccessories: ['cable-management-tray'],
-    weight: 68,
-    priceTier: '$$$',
-    featured: false,
-    estimatedProductionTime: '10–14 working days',
-  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Standing Adjustable Tables — Frame Only  (3 products)
+// Standing Adjustable Tables — Frame Only  (1 product)
 // ─────────────────────────────────────────────────────────────────────────────
 const STANDING_FRAME_ONLY: Product[] = [
   {
@@ -330,52 +305,6 @@ const STANDING_FRAME_ONLY: Product[] = [
     priceTier: '$',
     featured: false,
     estimatedProductionTime: '3–5 working days',
-  },
-  {
-    id: 'std-008',
-    slug: 'standing-frame-double-wide',
-    sku: 'ABS-STD-008',
-    name: 'Standing Desk Frame — Double Wide',
-    category: 'standing',
-    subType: 'double-wide',
-    variant: 'frame-only',
-    description:
-      'Dual-station standing frame rated to 120 kg. Bring your own tabletop and save on total cost while still getting the same precision dual bevel gear mechanism used in our complete desks.',
-    images: [
-      { src: '/gallery/standing/height-adjustable-desk-frame-internal-components.jpeg', alt: 'Double Wide Standing Frame – front view', width: 1200, height: 800 },
-    ],
-    idealFor: ['office', 'trading'],
-    frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
-    dimensions: { widthMin: 1400, widthMax: 1800, depth: 700, minHeight: 700, maxHeight: 1180 },
-    standingMechanism: { ...HAND_CRANK_MECHANISM, loadCapacity: 120 },
-    features: ['adjustable-feet'],
-    weight: 28,
-    priceTier: '$$',
-    featured: false,
-    estimatedProductionTime: '3–5 working days',
-  },
-  {
-    id: 'std-009',
-    slug: 'standing-frame-l-shaped',
-    sku: 'ABS-STD-009',
-    name: 'Standing Desk Frame — L-Shaped',
-    category: 'standing',
-    subType: 'l-standing',
-    variant: 'frame-only',
-    description:
-      'L-shaped height-adjustable frame without tabletop. Ideal for woodworking enthusiasts or those with an existing premium wood top. Both wings lift simultaneously via a single synchronized crank.',
-    images: [
-      { src: '/gallery/standing/height-adjustable-desk-frame-exploded-parts-view.jpeg', alt: 'L-Shaped Standing Frame – parts view', width: 1200, height: 800 },
-    ],
-    idealFor: ['developer', 'trading'],
-    frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
-    dimensions: { widthMin: 860, widthMax: 1330, depth: 1200, minHeight: 700, maxHeight: 1180 },
-    standingMechanism: HAND_CRANK_MECHANISM,
-    features: ['adjustable-feet'],
-    weight: 36,
-    priceTier: '$$',
-    featured: false,
-    estimatedProductionTime: '5–7 working days',
   },
 ];
 
