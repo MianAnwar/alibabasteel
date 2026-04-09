@@ -5,7 +5,7 @@ export type ProductCategory =
   | 'center-table' | 'dining-table' | 'home-decor'
   | 'lawn-sofa-chairs' | 'lawn-table-chairs'
   | 'mirror-console' | 'simple-center-tables'
-  | 'tables' | 'trolly-table';
+  | 'computer-tables' | 'trolly-table';
 
 export type ProductSubType =
   | 'gaming'

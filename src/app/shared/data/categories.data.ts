@@ -7,7 +7,7 @@ export const ALL_CATEGORIES: Category[] = [
     label: 'Simple Computer Tables',
     description:
       'Fixed-height steel-frame desks for gaming, office, student, and corner setups. Available in a range of widths and finishes — built to last and priced for every budget.',
-    coverImage: '/gallery/simple/executive-office-desk-1.jpg',
+    coverImage: '/alibaba-catalog/computer-tables/table-01.jpeg',
     itemCount: ALL_PRODUCTS.filter(p => p.category === 'simple').length,
   },
   {
@@ -15,7 +15,7 @@ export const ALL_CATEGORIES: Category[] = [
     label: 'Standing Adjustable Tables',
     description:
       'Hand-crank height-adjustable desks (700–1180 mm) with a precision dual bevel gear synchronized drive shaft. Available as complete desk or frame-only for custom tabletops.',
-    coverImage: '/gallery/standing/standing-single-classic-1.jpg',
+    coverImage: '/gallery/standing/height-adjustable-desk-bevel-gear-synchronized-lifting.jpeg',
     itemCount: ALL_PRODUCTS.filter(p => p.category === 'standing').length,
   },
   {
@@ -23,7 +23,7 @@ export const ALL_CATEGORIES: Category[] = [
     label: 'Desk Accessories',
     description:
       'Under-desk cable management trays and heavy-duty lockable casters — made in-house to the same steel standards as our desks and compatible with every frame we produce.',
-    coverImage: '/gallery/accessories/cable-tray-1.jpg',
+    coverImage: '/alibaba-catalog/trolly-table/trolly-table-01.jpeg',
     itemCount: ALL_PRODUCTS.filter(p => p.category === 'accessories').length,
   },
   {
@@ -31,7 +31,7 @@ export const ALL_CATEGORIES: Category[] = [
     label: 'Custom Computer Tables',
     description:
       'Fully bespoke fabrication — any dimension, any material, any finish. Browse showcase builds for inspiration, then start a custom quotation. Turnaround from 14 working days.',
-    coverImage: '/gallery/custom/trading-floor-desk-1.jpg',
+    coverImage: '/alibaba-catalog/computer-tables/table-05.jpeg',
     itemCount: ALL_PRODUCTS.filter(p => p.category === 'custom').length,
   },
   {
@@ -91,12 +91,12 @@ export const ALL_CATEGORIES: Category[] = [
     itemCount: ALL_PRODUCTS.filter(p => p.category === 'simple-center-tables').length,
   },
   {
-    slug: 'tables',
+    slug: 'computer-tables',
     label: 'Steel Tables',
     description:
       'A versatile range of steel tables for indoor and outdoor use — from utility side tables to multi-purpose work surfaces. Built to last.',
-    coverImage: '/alibaba-catalog/tables/table-01.jpeg',
-    itemCount: ALL_PRODUCTS.filter(p => p.category === 'tables').length,
+    coverImage: '/alibaba-catalog/computer-tables/table-01.jpeg',
+    itemCount: ALL_PRODUCTS.filter(p => p.category === 'computer-tables').length,
   },
   {
     slug: 'trolly-table',

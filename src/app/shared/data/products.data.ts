@@ -27,8 +27,8 @@ const SIMPLE_TABLES: Product[] = [
     description:
       'Built for marathon gaming sessions. Extra-wide surface fits dual 27″ monitors with room for a full-size keyboard, mouse mat, and headset stand. Steel frame with cable-management cutouts keeps the battle station clean.',
     images: [
-      { src: '/gallery/simple/gaming-desk-pro-x-1.jpg', alt: 'Gaming Desk Pro X – front view', width: 1200, height: 800 },
-      { src: '/gallery/simple/gaming-desk-pro-x-2.jpg', alt: 'Gaming Desk Pro X – cable cutout detail', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-01.jpeg', alt: 'Gaming Desk Pro X – front view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-02.jpeg', alt: 'Gaming Desk Pro X – cable cutout detail', width: 1200, height: 800 },
     ],
     idealFor: ['gaming', 'streaming', 'developer'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '16 gauge' },
@@ -51,8 +51,8 @@ const SIMPLE_TABLES: Product[] = [
     description:
       'Maximum real-estate for the serious PC gamer. Accommodates triple-monitor arrays, VR-ready setups, and streaming gear. RGB-friendly cable conduit built into the rear steel spine.',
     images: [
-      { src: '/gallery/simple/battlestation-xl-1.jpg', alt: 'Battlestation XL Gaming Desk – front view', width: 1200, height: 800 },
-      { src: '/gallery/simple/battlestation-xl-2.jpg', alt: 'Battlestation XL – triple-monitor setup', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-03.jpeg', alt: 'Battlestation XL Gaming Desk – front view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-04.jpeg', alt: 'Battlestation XL – triple-monitor setup', width: 1200, height: 800 },
     ],
     idealFor: ['gaming', 'streaming'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -75,8 +75,8 @@ const SIMPLE_TABLES: Product[] = [
     description:
       'Clean professional lines for a focused work environment. Gloss white frame with a premium MDF top creates a light, modern aesthetic. Central cable grommet keeps the desk wire-free.',
     images: [
-      { src: '/gallery/simple/executive-office-desk-1.jpg', alt: 'Executive Office Desk – front view', width: 1200, height: 800 },
-      { src: '/gallery/simple/executive-office-desk-2.jpg', alt: 'Executive Office Desk – side profile', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-05.jpeg', alt: 'Executive Office Desk – front view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-06.jpeg', alt: 'Executive Office Desk – side profile', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'home-office', 'developer'],
     frame: { material: 'mild-steel', finish: 'Gloss White', gaugeThickness: '16 gauge' },
@@ -99,7 +99,7 @@ const SIMPLE_TABLES: Product[] = [
     description:
       'Space-saving design ideal for hostel rooms and small bedrooms. Fits a 24″ monitor, laptop stand, and study books without cluttering. Powder-coated silver grey finish pairs with any room décor.',
     images: [
-      { src: '/gallery/simple/student-compact-desk-1.jpg', alt: 'Student Compact Desk – front view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-07.jpeg', alt: 'Student Compact Desk – front view', width: 1200, height: 800 },
     ],
     idealFor: ['student', 'home-office'],
     frame: { material: 'mild-steel', finish: 'Silver Grey', gaugeThickness: '18 gauge' },
@@ -121,8 +121,8 @@ const SIMPLE_TABLES: Product[] = [
     description:
       'Maximise corner space with a dual-wing workstation. Primary 1400 mm wing for the main monitor array; secondary 800 mm return for reference materials or a secondary monitor.',
     images: [
-      { src: '/gallery/simple/l-shaped-corner-desk-1.jpg', alt: 'L-Shaped Corner Workstation – overhead view', width: 1200, height: 800 },
-      { src: '/gallery/simple/l-shaped-corner-desk-2.jpg', alt: 'L-Shaped Corner Workstation – workspace detail', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-08.jpeg', alt: 'L-Shaped Corner Workstation – overhead view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-09.jpeg', alt: 'L-Shaped Corner Workstation – workspace detail', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'developer', 'home-office', 'trading'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '16 gauge' },
@@ -393,8 +393,8 @@ const ACCESSORIES: Product[] = [
     description:
       'Bolt-on steel cable management tray that mounts below the desk surface. Routes power strips, USB hubs, and cable bundles out of sight. Compatible with all AliBabaSteel desktop and standing desk frames.',
     images: [
-      { src: '/gallery/accessories/cable-tray-1.jpg', alt: 'Cable Management Tray – installed view', width: 1200, height: 800 },
-      { src: '/gallery/accessories/cable-tray-2.jpg', alt: 'Cable Management Tray – under-desk view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/trolly-table/trolly-table-01.jpeg', alt: 'Cable Management Tray – installed view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/trolly-table/trolly-table-02.jpeg', alt: 'Cable Management Tray – under-desk view', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'gaming', 'developer', 'home-office'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '18 gauge' },
@@ -415,8 +415,8 @@ const ACCESSORIES: Product[] = [
     description:
       'Set of 4 heavy-duty steel casters with dual-lock brakes. Replaces standard adjustable feet on any AliBabaSteel frame. Allows the entire desk to roll freely for reconfiguration, then locks solid at the push of a heel.',
     images: [
-      { src: '/gallery/accessories/heavy-duty-casters-1.jpg', alt: 'Lockable Casters Set – product view', width: 1200, height: 800 },
-      { src: '/gallery/accessories/heavy-duty-casters-2.jpg', alt: 'Lockable Casters – installed on frame leg', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/trolly-table/trolly-table-03.jpeg', alt: 'Lockable Casters Set – product view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/trolly-table/trolly-table-04.jpeg', alt: 'Lockable Casters – installed on frame leg', width: 1200, height: 800 },
     ],
     idealFor: ['office', 'gaming'],
     frame: { material: 'mild-steel', finish: 'Silver Grey', gaugeThickness: '16 gauge' },
@@ -443,8 +443,8 @@ const CUSTOM_TABLES: Product[] = [
     description:
       'Showcase build: a 6-monitor trading desk fabricated for a Lahore-based trading firm. 2400 mm wide steel-sheet tabletop, dual monitor mount holes, integrated cable spine, and lockable casters for easy desk rotation during market hours.',
     images: [
-      { src: '/gallery/custom/trading-floor-desk-1.jpg', alt: 'Custom Trading Floor Desk – full setup', width: 1200, height: 800 },
-      { src: '/gallery/custom/trading-floor-desk-2.jpg', alt: 'Custom Trading Floor Desk – monitor array', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-10.jpeg', alt: 'Custom Trading Floor Desk – full setup', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-11.jpeg', alt: 'Custom Trading Floor Desk – monitor array', width: 1200, height: 800 },
     ],
     idealFor: ['trading'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -467,8 +467,8 @@ const CUSTOM_TABLES: Product[] = [
     description:
       'Showcase build for a local content creator. Curved front edge, integrated microphone boom arm mount, rear camera riser shelf, and an RGB LED strip channel routed along the frame. MDF top with custom black matte wrap.',
     images: [
-      { src: '/gallery/custom/streaming-studio-desk-1.jpg', alt: 'Custom Streaming Studio Desk – full view', width: 1200, height: 800 },
-      { src: '/gallery/custom/streaming-studio-desk-2.jpg', alt: 'Custom Streaming Studio Desk – mic arm mount detail', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-12.jpeg', alt: 'Custom Streaming Studio Desk – full view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-13.jpeg', alt: 'Custom Streaming Studio Desk – mic arm mount detail', width: 1200, height: 800 },
     ],
     idealFor: ['streaming', 'gaming'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '16 gauge' },
@@ -491,7 +491,7 @@ const CUSTOM_TABLES: Product[] = [
     description:
       'Showcase build: 10 mm tempered glass top on a powder-coated gloss white frame for a C-suite executive. Minimalist profile with concealed cable channels. The glass top is sourced and cut to order; the frame is manufactured in-house.',
     images: [
-      { src: '/gallery/custom/glass-executive-desk-1.jpg', alt: 'Custom Glass Executive Desk – front view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-14.jpeg', alt: 'Custom Glass Executive Desk – front view', width: 1200, height: 800 },
     ],
     idealFor: ['office'],
     frame: { material: 'mild-steel', finish: 'Gloss White', gaugeThickness: '16 gauge' },
@@ -513,8 +513,8 @@ const CUSTOM_TABLES: Product[] = [
     description:
       'Showcase build: a matched home office set — height-adjustable standing desk (MDF top), a fixed side table, and a wall-mounted monitor shelf — all in powder-coated silver grey. Designed for a home office renovation project.',
     images: [
-      { src: '/gallery/custom/home-office-bundle-1.jpg', alt: 'Custom Home Office Bundle – full room view', width: 1200, height: 800 },
-      { src: '/gallery/custom/home-office-bundle-2.jpg', alt: 'Custom Home Office Bundle – desk detail', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-15.jpeg', alt: 'Custom Home Office Bundle – full room view', width: 1200, height: 800 },
+      { src: '/alibaba-catalog/computer-tables/table-16.jpeg', alt: 'Custom Home Office Bundle – desk detail', width: 1200, height: 800 },
     ],
     idealFor: ['home-office'],
     frame: { material: 'mild-steel', finish: 'Silver Grey', gaugeThickness: '16 gauge' },
@@ -1203,13 +1203,13 @@ const STEEL_TABLES: Product[] = [
   {
     id: 'tb-001', slug: 'steel-table-style-a', sku: 'ABS-TB-001',
     name: 'Steel Table — Style A',
-    category: 'tables', subType: 'general-table',
+    category: 'computer-tables', subType: 'general-table',
     description: 'Versatile steel table for indoor and semi-outdoor use. Suitable as a work surface, side table, or utility table. Clean lines and solid build.',
     images: [
-      { src: '/alibaba-catalog/tables/table-01.jpeg', alt: 'Steel Table A – view 1' },
-      { src: '/alibaba-catalog/tables/table-02.jpeg', alt: 'Steel Table A – view 2' },
-      { src: '/alibaba-catalog/tables/table-03.jpeg', alt: 'Steel Table A – view 3' },
-      { src: '/alibaba-catalog/tables/table-04.jpeg', alt: 'Steel Table A – view 4' },
+      { src: '/alibaba-catalog/computer-tables/table-01.jpeg', alt: 'Steel Table A – view 1' },
+      { src: '/alibaba-catalog/computer-tables/table-02.jpeg', alt: 'Steel Table A – view 2' },
+      { src: '/alibaba-catalog/computer-tables/table-03.jpeg', alt: 'Steel Table A – view 3' },
+      { src: '/alibaba-catalog/computer-tables/table-04.jpeg', alt: 'Steel Table A – view 4' },
     ],
     idealFor: ['home-office', 'living-room'],
     frame: { material: 'mild-steel', finish: 'Powder Coated', gaugeThickness: '16 gauge' },
@@ -1220,13 +1220,13 @@ const STEEL_TABLES: Product[] = [
   {
     id: 'tb-002', slug: 'steel-table-style-b', sku: 'ABS-TB-002',
     name: 'Steel Table — Style B',
-    category: 'tables', subType: 'general-table',
+    category: 'computer-tables', subType: 'general-table',
     description: 'Industrial-look steel table with a raw or powder-coated finish. Popular for studio spaces, showrooms, and modern interiors.',
     images: [
-      { src: '/alibaba-catalog/tables/table-05.jpeg', alt: 'Steel Table B – view 1' },
-      { src: '/alibaba-catalog/tables/table-06.jpeg', alt: 'Steel Table B – view 2' },
-      { src: '/alibaba-catalog/tables/table-07.jpeg', alt: 'Steel Table B – view 3' },
-      { src: '/alibaba-catalog/tables/table-08.jpeg', alt: 'Steel Table B – view 4' },
+      { src: '/alibaba-catalog/computer-tables/table-05.jpeg', alt: 'Steel Table B – view 1' },
+      { src: '/alibaba-catalog/computer-tables/table-06.jpeg', alt: 'Steel Table B – view 2' },
+      { src: '/alibaba-catalog/computer-tables/table-07.jpeg', alt: 'Steel Table B – view 3' },
+      { src: '/alibaba-catalog/computer-tables/table-08.jpeg', alt: 'Steel Table B – view 4' },
     ],
     idealFor: ['office', 'home-office'],
     frame: { material: 'mild-steel', finish: 'Raw Steel', gaugeThickness: '14 gauge' },
@@ -1237,13 +1237,13 @@ const STEEL_TABLES: Product[] = [
   {
     id: 'tb-003', slug: 'steel-table-style-c', sku: 'ABS-TB-003',
     name: 'Steel Table — Style C',
-    category: 'tables', subType: 'general-table',
+    category: 'computer-tables', subType: 'general-table',
     description: 'Folding steel table with a portable profile. Easy to store and deploy — perfect for events, extra dining, and temporary workstations.',
     images: [
-      { src: '/alibaba-catalog/tables/table-09.jpeg', alt: 'Steel Table C – view 1' },
-      { src: '/alibaba-catalog/tables/table-10.jpeg', alt: 'Steel Table C – view 2' },
-      { src: '/alibaba-catalog/tables/table-11.jpeg', alt: 'Steel Table C – view 3' },
-      { src: '/alibaba-catalog/tables/table-12.jpeg', alt: 'Steel Table C – view 4' },
+      { src: '/alibaba-catalog/computer-tables/table-09.jpeg', alt: 'Steel Table C – view 1' },
+      { src: '/alibaba-catalog/computer-tables/table-10.jpeg', alt: 'Steel Table C – view 2' },
+      { src: '/alibaba-catalog/computer-tables/table-11.jpeg', alt: 'Steel Table C – view 3' },
+      { src: '/alibaba-catalog/computer-tables/table-12.jpeg', alt: 'Steel Table C – view 4' },
     ],
     idealFor: ['office', 'outdoor'],
     frame: { material: 'mild-steel', finish: 'Silver Grey', gaugeThickness: '18 gauge' },
@@ -1254,13 +1254,13 @@ const STEEL_TABLES: Product[] = [
   {
     id: 'tb-004', slug: 'steel-table-style-d', sku: 'ABS-TB-004',
     name: 'Steel Table — Style D',
-    category: 'tables', subType: 'general-table',
+    category: 'computer-tables', subType: 'general-table',
     description: 'Heavy-duty steel work table — built for workshops, kitchens, and industrial environments. Extra load capacity with a thick-gauge top.',
     images: [
-      { src: '/alibaba-catalog/tables/table-13.jpeg', alt: 'Steel Table D – view 1' },
-      { src: '/alibaba-catalog/tables/table-14.jpeg', alt: 'Steel Table D – view 2' },
-      { src: '/alibaba-catalog/tables/table-15.jpeg', alt: 'Steel Table D – view 3' },
-      { src: '/alibaba-catalog/tables/table-16.jpeg', alt: 'Steel Table D – view 4' },
+      { src: '/alibaba-catalog/computer-tables/table-13.jpeg', alt: 'Steel Table D – view 1' },
+      { src: '/alibaba-catalog/computer-tables/table-14.jpeg', alt: 'Steel Table D – view 2' },
+      { src: '/alibaba-catalog/computer-tables/table-15.jpeg', alt: 'Steel Table D – view 3' },
+      { src: '/alibaba-catalog/computer-tables/table-16.jpeg', alt: 'Steel Table D – view 4' },
     ],
     idealFor: ['office', 'home-office'],
     frame: { material: 'mild-steel', finish: 'Matte Black', gaugeThickness: '14 gauge' },
@@ -1271,12 +1271,12 @@ const STEEL_TABLES: Product[] = [
   {
     id: 'tb-005', slug: 'steel-table-style-e', sku: 'ABS-TB-005',
     name: 'Steel Table — Style E',
-    category: 'tables', subType: 'general-table',
+    category: 'computer-tables', subType: 'general-table',
     description: 'Decorative accent table with an artistic steel frame — bridges utility and décor for living and display spaces.',
     images: [
-      { src: '/alibaba-catalog/tables/table-17.jpeg', alt: 'Steel Table E – view 1' },
-      { src: '/alibaba-catalog/tables/table-18.jpeg', alt: 'Steel Table E – view 2' },
-      { src: '/alibaba-catalog/tables/table-19.jpeg', alt: 'Steel Table E – view 3' },
+      { src: '/alibaba-catalog/computer-tables/table-17.jpeg', alt: 'Steel Table E – view 1' },
+      { src: '/alibaba-catalog/computer-tables/table-18.jpeg', alt: 'Steel Table E – view 2' },
+      { src: '/alibaba-catalog/computer-tables/table-19.jpeg', alt: 'Steel Table E – view 3' },
     ],
     idealFor: ['living-room', 'home-decor'],
     frame: { material: 'mild-steel', finish: 'Gloss Gold', gaugeThickness: '18 gauge' },
