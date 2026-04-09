@@ -102,15 +102,15 @@
         </div>
         <div class="spec-row">
           <span class="spec-key">Frame Material</span>
-          <span class="spec-val">{{ p.frame.material }}</span>
+          <span class="spec-val">{{ p.frame?.material }}</span>
         </div>
         <div class="spec-row">
           <span class="spec-key">Frame Finish</span>
-          <span class="spec-val">{{ p.frame.finish }}</span>
+          <span class="spec-val">{{ p.frame?.finish }}</span>
         </div>
         <div class="spec-row">
           <span class="spec-key">Gauge</span>
-          <span class="spec-val">{{ p.frame.gaugeThickness }}</span>
+          <span class="spec-val">{{ p.frame?.gaugeThickness }}</span>
         </div>
         @if (p.tabletop) {
           <div class="spec-row">

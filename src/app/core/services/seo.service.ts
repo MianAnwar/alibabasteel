@@ -131,7 +131,7 @@ export class SeoService {
         img.src.startsWith('http') ? img.src : `${this.siteUrl}${img.src}`
       ),
       brand: { '@type': 'Brand', name: 'AliBabaSteel' },
-      material: product.tabletop?.material ?? product.frame.material,
+      material: product.tabletop?.material ?? product.frame?.material,
       ...(product.dimensions.width
         ? { width: { '@type': 'QuantitativeValue', value: product.dimensions.width, unitCode: 'MMT' } }
         : {}),

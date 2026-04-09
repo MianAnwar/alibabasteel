@@ -1,6 +1,12 @@
 // AliBabaSteel — Product data models
 
-export type ProductCategory = 'simple' | 'standing' | 'accessories' | 'custom';
+export type ProductCategory =
+  | 'simple' | 'standing' | 'accessories' | 'custom'
+  | 'center-table' | 'dining-table' | 'home-decor'
+  | 'lawn-sofa-chairs' | 'lawn-table-chairs'
+  | 'mirror-console' | 'simple-center-tables'
+  | 'tables' | 'trolly-table';
+
 export type ProductSubType =
   | 'gaming'
   | 'office'
@@ -10,7 +16,16 @@ export type ProductSubType =
   | 'double-wide'
   | 'l-standing'
   | 'cable-tray'
-  | 'casters';
+  | 'casters'
+  | 'center-table'
+  | 'dining-table'
+  | 'home-decor'
+  | 'lawn-sofa'
+  | 'lawn-table'
+  | 'mirror-console'
+  | 'simple-center-table'
+  | 'general-table'
+  | 'trolly-table';
 export type ProductVariant = 'frame-only' | 'with-top' | 'complete';
 export type PriceTier = '$' | '$$' | '$$$';
 export type IdealUseCase =
@@ -20,7 +35,11 @@ export type IdealUseCase =
   | 'student'
   | 'streaming'
   | 'developer'
-  | 'home-office';
+  | 'home-office'
+  | 'living-room'
+  | 'dining'
+  | 'outdoor'
+  | 'home-decor';
 
 export interface ProductImage {
   src: string;
@@ -56,7 +75,7 @@ export interface Product {
   images: ProductImage[];
   videos?: ProductVideo[];
   idealFor: IdealUseCase[];
-  frame: {
+  frame?: {
     material: 'mild-steel' | 'stainless-steel';
     finish: string; // 'Matte Black' | 'Gloss White' | 'Raw Steel' | 'Silver Grey' | 'Custom'
     gaugeThickness: string; // e.g. '16 gauge'
