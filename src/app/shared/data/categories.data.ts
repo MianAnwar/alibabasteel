@@ -106,4 +106,36 @@ export const ALL_CATEGORIES: Category[] = [
     coverImage: '/alibaba-catalog/trolly-table/trolly-table-01.jpeg',
     itemCount: ALL_PRODUCTS.filter(p => p.category === 'trolly-table').length,
   },
+  {
+    slug: 'bed',
+    label: 'Single Beds',
+    description:
+      'Sturdy single-size steel beds built for comfort and durability. Ideal for bedrooms, hostels, and guest rooms — available in various finishes.',
+    coverImage: '/alibaba-catalog/bed/bed-01.jpeg',
+    itemCount: ALL_PRODUCTS.filter(p => p.category === 'bed').length,
+  },
+  {
+    slug: 'bunk-bed',
+    label: 'Bunk Beds',
+    description:
+      'Space-saving steel bunk beds perfect for kids\' rooms, hostels, and dormitories. Safe, sturdy, and available in multiple configurations.',
+    coverImage: '/alibaba-catalog/bunk-bed/bunk-bed-01.jpeg',
+    itemCount: ALL_PRODUCTS.filter(p => p.category === 'bunk-bed').length,
+  },
+  {
+    slug: 'double-bed',
+    label: 'Double Beds',
+    description:
+      'Premium double-size steel beds combining elegant design with lasting strength. A centrepiece for any master or guest bedroom.',
+    coverImage: '/alibaba-catalog/double-bed/double-bed-01.jpeg',
+    itemCount: ALL_PRODUCTS.filter(p => p.category === 'double-bed').length,
+  },
+  {
+    slug: 'swings',
+    label: 'Swings',
+    description:
+      'Decorative and functional steel swings for indoor lounges, lawns, and patios. Smooth finish, weather-resistant frames, and relaxed seating.',
+    coverImage: '/alibaba-catalog/swings/swing-01.jpeg',
+    itemCount: ALL_PRODUCTS.filter(p => p.category === 'swings').length,
+  },
 ];

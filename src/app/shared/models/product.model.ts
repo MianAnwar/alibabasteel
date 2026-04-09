@@ -5,7 +5,8 @@ export type ProductCategory =
   | 'center-table' | 'dining-table' | 'home-decor'
   | 'lawn-sofa-chairs' | 'lawn-table-chairs'
   | 'mirror-console' | 'simple-center-tables'
-  | 'computer-tables' | 'trolly-table';
+  | 'computer-tables' | 'trolly-table'
+  | 'bed' | 'bunk-bed' | 'double-bed' | 'swings';
 
 export type ProductSubType =
   | 'gaming'
@@ -25,7 +26,11 @@ export type ProductSubType =
   | 'mirror-console'
   | 'simple-center-table'
   | 'general-table'
-  | 'trolly-table';
+  | 'trolly-table'
+  | 'bed'
+  | 'bunk-bed'
+  | 'double-bed'
+  | 'swing';
 export type ProductVariant = 'frame-only' | 'with-top' | 'complete';
 export type PriceTier = '$' | '$$' | '$$$';
 export type IdealUseCase =
@@ -39,7 +44,9 @@ export type IdealUseCase =
   | 'living-room'
   | 'dining'
   | 'outdoor'
-  | 'home-decor';
+  | 'home-decor'
+  | 'bedroom'
+  | 'kids-room';
 
 export interface ProductImage {
   src: string;
